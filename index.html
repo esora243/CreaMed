@@ -57,6 +57,9 @@
             align-self: flex-start;
             border-radius: 0.75rem 0.75rem 0.75rem 0.25rem; /* rounded-xl rounded-br-sm */
         }
+        .quick-reply-button {
+            @apply bg-sky-100 text-sky-800 text-sm font-medium py-2 px-4 rounded-full hover:bg-sky-200 transition duration-200 ease-in-out cursor-pointer;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -158,6 +161,8 @@
 
     <script>
         // Google Apps ScriptのウェブアプリURLをここに設定します
+        // 【重要】ご自身のGASプロジェクトをウェブアプリとしてデプロイした際に表示される完全なURLを貼り付けてください。
+        // 例: https://script.google.com/macros/s/AKfycbwz08-GmS8ttxe6quGsKyssKZpMCvtTX7kBM948keC-kTNpR5ZXQyhHG1fp3VQwOmenIQ/exec
         const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwz08-GmS8ttxe6quGsKyssKZpMCvtTX7kBM948keC-kTNpR5ZXQyhHG1fp3VQwOmenIQ/exec";
 
         // DOMContentLoadedで初期化
@@ -675,6 +680,16 @@
                             </div>
                         </div>
 
+                        <div id="quick-replies" class="flex flex-wrap gap-2 justify-center mb-4">
+                            <button class="quick-reply-button" data-question="予約について">予約について</button>
+                            <button class="quick-reply-button" data-question="診療時間について">診療時間について</button>
+                            <button class="quick-reply-button" data-question="お薬の受け取り">お薬の受け取り</button>
+                            <button class="quick-reply-button" data-question="プライバシー保護">プライバシー保護</button>
+                            <button class="quick-reply-button" data-question="アフターピルについて">アフターピルについて</button>
+                            <button class="quick-reply-button" data-question="カウンセリングについて">カウンセリングについて</button>
+                            <button class="quick-reply-button" data-question="産業医相談について">産業医相談について</button>
+                        </div>
+
                         <form id="chat-form" class="flex gap-2">
                             <input
                                 type="text"
@@ -733,34 +748,49 @@
                 const chatInput = document.getElementById('chat-input');
                 const chatBox = document.getElementById('chat-box');
                 const chatErrorMessage = document.getElementById('chat-error-message');
+                const quickRepliesContainer = document.getElementById('quick-replies');
 
                 // よくある質問と回答の辞書
                 const faqResponses = {
-                    '予約': 'ご予約は、ヘッダーの「今すぐ診療予約」ボタンからお申し込みいただけます。ご希望の日時と内容をご入力ください。',
-                    '診療時間': 'クレアクリニックはオンライン診療のため、24時間ご予約を受け付けております。実際の診療時間は、ご予約時にご希望いただけます。',
-                    '薬': '診療後、医師が必要と判断した処方薬は、その日のうちに指定のご住所へ発送いたします。',
-                    'プライバシー': '患者様の個人情報やご相談内容は厳重に管理し、プライバシーを最大限に尊重いたします。安心してご相談ください。',
-                    'アフターピル': 'アフターピル（緊急避妊薬）の処方を行っております。オンラインで迅速にご相談いただけます。',
-                    'カウンセリング': 'メンタルカウンセリングでは、心の健康に関する幅広いご相談に対応しております。専門のカウンセラーが担当いたします。',
-                    '産業医': '職場のストレスや健康問題について、産業医が専門的なアドバイスを提供します。中小企業の従業員様からのご相談も歓迎です。',
-                    '料金': '各診療内容の料金については、それぞれのサービス詳細ページに記載しております。',
-                    'キャンセル': '商品の特性上、ご購入後のキャンセル・返品は承っておりません。詳細は法的情報ページをご確認ください。',
+                    '予約について': 'ご予約は、ヘッダーの「今すぐ診療予約」ボタンからお申し込みいただけます。ご希望の日時と内容をご入力ください。',
+                    '診療時間について': 'クレアクリニックはオンライン診療のため、24時間ご予約を受け付けております。実際の診療時間は、ご予約時にご希望いただけます。',
+                    'お薬の受け取り': '診療後、医師が必要と判断した処方薬は、その日のうちに指定のご住所へ発送いたします。',
+                    'プライバシー保護': '患者様の個人情報やご相談内容は厳重に管理し、プライバシーを最大限に尊重いたします。安心してご相談ください。',
+                    'アフターピルについて': 'アフターピル（緊急避妊薬）の処方を行っております。オンラインで迅速にご相談いただけます。',
+                    'カウンセリングについて': 'メンタルカウンセリングでは、心の健康に関する幅広いご相談に対応しております。専門のカウンセラーが担当いたします。',
+                    '産業医相談について': '職場のストレスや健康問題について、産業医が専門的なアドバイスを提供します。中小企業の従業員様からのご相談も歓迎です。',
+                    '料金について': '各診療内容の料金については、それぞれのサービス詳細ページに記載しております。',
+                    'キャンセルについて': '商品の特性上、ご購入後のキャンセル・返品は承っておりません。詳細は法的情報ページをご確認ください。',
                     'ありがとう': 'どういたしまして！他にご不明な点はございませんか？',
                     'こんにちは': 'こんにちは！何かお手伝いできることはありますか？'
                 };
 
+                // クイック返信ボタンのイベントリスナー
+                if (quickRepliesContainer) {
+                    quickRepliesContainer.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('quick-reply-button')) {
+                            const question = e.target.dataset.question;
+                            handleChatInput(question);
+                        }
+                    });
+                }
+
                 chatForm.addEventListener('submit', (e) => {
                     e.preventDefault();
                     const userMessage = chatInput.value.trim();
+                    handleChatInput(userMessage);
+                });
+
+                function handleChatInput(message) {
                     chatErrorMessage.classList.add('hidden'); // エラーメッセージを非表示に
 
-                    if (userMessage === '') {
+                    if (message === '') {
                         chatErrorMessage.classList.remove('hidden');
                         return;
                     }
 
                     // ユーザーメッセージを表示
-                    appendMessage(userMessage, 'user');
+                    appendMessage(message, 'user');
                     chatInput.value = ''; // 入力フィールドをクリア
 
                     // AIの応答をシミュレート
@@ -768,15 +798,32 @@
                         let botResponse = '申し訳ありません、その質問にはお答えできません。別の質問をお試しいただくか、お電話でお問い合わせください。';
                         
                         // キーワードに基づいて応答を検索
-                        for (const keyword in faqResponses) {
-                            if (userMessage.includes(keyword) || userMessage.toLowerCase().includes(keyword.toLowerCase())) {
-                                botResponse = faqResponses[keyword];
-                                break;
-                            }
+                        // ユーザーの入力がFAQの質問と完全に一致するか、部分的に含むかをチェック
+                        const matchedKeyword = Object.keys(faqResponses).find(keyword => 
+                            message.includes(keyword) || message.toLowerCase().includes(keyword.toLowerCase())
+                        );
+
+                        if (matchedKeyword) {
+                            botResponse = faqResponses[matchedKeyword];
+                        } else {
+                            // より柔軟なキーワードマッチング（簡易版）
+                            const lowerCaseMessage = message.toLowerCase();
+                            if (lowerCaseMessage.includes('予約')) botResponse = faqResponses['予約について'];
+                            else if (lowerCaseMessage.includes('時間') || lowerCaseMessage.includes('診療時間')) botResponse = faqResponses['診療時間について'];
+                            else if (lowerCaseMessage.includes('薬') || lowerCaseMessage.includes('受け取り')) botResponse = faqResponses['お薬の受け取り'];
+                            else if (lowerCaseMessage.includes('プライバシー')) botResponse = faqResponses['プライバシー保護'];
+                            else if (lowerCaseMessage.includes('アフターピル')) botResponse = faqResponses['アフターピルについて'];
+                            else if (lowerCaseMessage.includes('カウンセリング')) botResponse = faqResponses['カウンセリングについて'];
+                            else if (lowerCaseMessage.includes('産業医')) botResponse = faqResponses['産業医相談について'];
+                            else if (lowerCaseMessage.includes('料金') || lowerCaseMessage.includes('費用')) botResponse = faqResponses['料金について'];
+                            else if (lowerCaseMessage.includes('キャンセル') || lowerCaseMessage.includes('返品')) botResponse = faqResponses['キャンセルについて'];
+                            else if (lowerCaseMessage.includes('ありがとう')) botResponse = faqResponses['ありがとう'];
+                            else if (lowerCaseMessage.includes('こんにちは')) botResponse = faqResponses['こんにちは'];
                         }
+
                         appendMessage(botResponse, 'bot');
                     }, 1000); // 1秒後に応答
-                });
+                }
 
                 function appendMessage(message, sender) {
                     const messageElement = document.createElement('div');
