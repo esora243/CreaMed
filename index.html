@@ -9,8 +9,8 @@
     <meta property="og:title" content="クレアクリニック オンラインHP：忙しいあなたのための安心オンライン診療">
     <meta property="og:description" content="オンライン診療でアフターピル、緊急避妊薬、カウンセリング、産業医相談を提供。忙しいあなたのための質の高い医療を自宅から手軽に。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-clinic-url.com"> <!-- 実際のURLに置き換えてください -->
-    <link rel="canonical" href="https://your-clinic-url.com"> <!-- 実際のURLに置き換えてください -->
+    <meta property="og:url" content="https://esora243.github.io/clear/"> <!-- 実際のURLに置き換えてください -->
+    <link rel="canonical" href="https://esora243.github.io/clear/"> <!-- 実際のURLに置き換えてください -->
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,6 +60,41 @@
         .quick-reply-button {
             @apply bg-sky-100 text-sky-800 text-sm font-medium py-2 px-4 rounded-full hover:bg-sky-200 transition duration-200 ease-in-out cursor-pointer;
         }
+
+        /* フェードインアニメーション */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform; /* パフォーマンス最適化 */
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ヘッダーの背景画像と透過オーバーレイ */
+        .header-with-bg {
+            background-image: url('unnamed (1).png'); /* ヘッダー背景画像 */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 10; /* コンテンツの上に表示 */
+        }
+        .header-with-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(14, 116, 144, 0.7); /* sky-700の半透明 */
+            z-index: -1; /* 背景画像のすぐ上に配置 */
+        }
+        .header-content {
+            position: relative; /* コンテンツをz-indexで前面に */
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -73,9 +108,13 @@
     </script>
 
     <!-- ヘッダー -->
-    <header class="bg-sky-700 text-white shadow-lg sticky top-0 z-50 rounded-b-xl">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-white tracking-tight rounded-md" onclick="navigate('home'); return false;">クレアクリニック</a>
+    <header class="header-with-bg text-white shadow-lg sticky top-0 z-50 rounded-b-xl">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center header-content">
+            <a href="#" class="text-3xl font-extrabold text-white tracking-tight rounded-md flex items-center" onclick="navigate('home'); return false;">
+                <!-- クレアクリニックのロゴ -->
+                <img src="ChatGPT Image 2025年6月29日 14_19_33.png" alt="クレアクリニック ロゴ" class="h-10 mr-2">
+                クレアクリニック
+            </a>
             
             <!-- ナビゲーション (デスクトップ) -->
             <nav class="hidden md:block">
@@ -168,8 +207,25 @@
         // 例: https://script.google.com/macros/s/AKfycbwz08-GmS8ttxe6quGsKyssKZpMCvtTX7kBM948keC-kTNpR5ZXQyhHG1fp3VQwOmenIQ/exec
         const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwz08-GmS8ttxe6quGsKyssKZpMCvtTX7kBM948keC-kTNpR5ZXQyhHG1fp3VQwOmenIQ/exec";
 
-        // DOMContentLoadedで初期化
+        // Intersection Observerでフェードインを制御
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // 一度表示されたら監視を停止
+                }
+            });
+        }, {
+            threshold: 0.1 // 10%が見えたら発火
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
+            // フェードインセクションの監視を開始
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('fade-in-section'); // 全てのセクションにフェードインクラスを追加
+                fadeObserver.observe(section);
+            });
+
             // ハンバーガーメニューのトグル
             const hamburgerButton = document.getElementById('hamburger-menu');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -318,7 +374,7 @@
                     <section class="bg-white p-8 rounded-xl shadow-xl mb-12 text-center">
                         <div class="relative overflow-hidden rounded-lg mb-8">
                             <!-- メインビジュアル: オンライン診療の安心感を伝える画像。例: 穏やかな表情でPC画面を見つめる女性、または医師と患者がPC越しに話しているイメージ。背景は清潔感のあるクリニック風の空間。 -->
-                            <img src="feature_2.jpg" alt="オンライン診療の予約カレンダーイメージ" class="w-full h-auto object-cover rounded-lg">
+                            <img src="fv_bg.webp" alt="オンライン診療のイメージ：PCやスマホで診察を受ける人々" class="w-full h-auto object-cover rounded-lg">
                             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 rounded-lg">
                                 <h2 class="text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
                                     オンラインで完結。<br>忙しいあなたのための医療サービス。
@@ -374,6 +430,33 @@
                                 <h4 class="text-xl font-semibold text-gray-800 mb-2">お薬を迅速発送</h4>
                                 <p class="text-gray-600 text-sm">診療後、必要な場合は迅速に処方薬を発送。お急ぎのケースにも対応します。</p>
                             </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white p-8 rounded-xl shadow-xl mb-12">
+                        <h3 class="text-3xl font-bold text-sky-700 mb-6 text-center">ご利用の流れ</h3>
+                        <p class="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+                            クレアクリニックのオンライン診療は、たった3つのステップで完了します。
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="flex flex-col items-center text-center p-4 bg-sky-50 rounded-lg shadow-sm border border-sky-200">
+                                <img src="s05_IS_step01.webp" alt="ステップ1：予約" class="w-32 h-32 object-contain mb-4">
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">ステップ1: 予約</h4>
+                                <p class="text-gray-600 text-sm">ウェブサイトからご希望の診療内容と日時を選択し、ご予約ください。</p>
+                            </div>
+                            <div class="flex flex-col items-center text-center p-4 bg-sky-50 rounded-lg shadow-sm border border-sky-200">
+                                <img src="s05_IS_step02.webp" alt="ステップ2：オンライン診療" class="w-32 h-32 object-contain mb-4">
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">ステップ2: オンライン診療</h4>
+                                <p class="text-gray-600 text-sm">ご予約の時間になったら、PCやスマートフォンで医師の診察を受けます。</p>
+                            </div>
+                            <div class="flex flex-col items-center text-center p-4 bg-sky-50 rounded-lg shadow-sm border border-sky-200">
+                                <img src="s05_IS_step03.webp" alt="ステップ3：お薬の発送" class="w-32 h-32 object-contain mb-4">
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">ステップ3: お薬の発送</h4>
+                                <p class="text-gray-600 text-sm">必要に応じて、診察後すぐにお薬をご自宅へ発送いたします。</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-8">
+                            <img src="400a6f30-ea20-4b0a-a8e5-7469cd35d5a.png" alt="配送手順のイラスト" class="mx-auto w-full max-w-lg object-contain rounded-lg shadow-md">
                         </div>
                     </section>
 
@@ -452,7 +535,7 @@
                             <!-- サービス1: アフターピルの処方 -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200">
                                 <!-- アフターピル処方のイメージ: 医薬品のパッケージや、手元に薬を持つ人など。清潔感があり、迅速さを連想させる構図。 -->
-                                <img src="s03_IS_shipment.web" alt="アフターピルのパッケージと迅速発送のイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
+                                <img src="s03_IS_shipment.webp" alt="アフターピルのパッケージと迅速発送のイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">アフターピルの処方</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
                                     予期せぬ妊娠の可能性に直面した際、**緊急避妊薬**（アフターピル）を迅速かつプライバシーに配慮して処方いたします。
@@ -758,7 +841,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <!-- ブログ記事1 -->
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
-                                <img src="https://placehold.co/400x200/E0F2F7/2C3E50?text=オンライン診療のメリット" alt="オンライン診療のメリットを紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
+                                <img src="s06_IS_recommend01.webp" alt="オンライン診療のメリットを紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">オンライン診療のメリットを徹底解説！</h3>
                                 <p class="text-sm text-gray-500 mb-3">2023年11月15日</p>
                                 <p class="text-gray-700 text-sm leading-relaxed flex-grow">
@@ -769,7 +852,7 @@
 
                             <!-- ブログ記事2 -->
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
-                                <img src="https://placehold.co/400x200/E0F2F7/2C3E50?text=心のケアの重要性" alt="心のケアの重要性を伝える画像" class="w-full h-40 object-cover rounded-lg mb-4">
+                                <img src="s06_IS_recommend02.webp" alt="心のケアの重要性を伝える画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">現代社会における心のケアの重要性</h3>
                                 <p class="text-sm text-gray-500 mb-3">2023年11月10日</p>
                                 <p class="text-gray-700 text-sm leading-relaxed flex-grow">
@@ -780,13 +863,13 @@
 
                             <!-- ブログ記事3 -->
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
-                                <img src="https://placehold.co/400x200/E0F2F7/2C3E50?text=産業医の役割" alt="産業医の役割を紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
+                                <img src="s06_IS_recommend01.webp" alt="産業医の役割を紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">中小企業における産業医の役割とは？</h3>
                                 <p class="text-sm text-gray-500 mb-3">2023年11月05日</p>
                                 <p class="text-gray-700 text-sm leading-relaxed flex-grow">
                                     従業員の健康管理は企業の重要な責任です。特に中小企業における産業医の役割と、オンラインでの活用方法について解説します。
                                 </p>
-                                <a href="#" onclick="showModal('ブログ記事', '<h3>中小企業における産業医の役割とは？</h3><p class=\'text-sm text-gray-500 mb-3\'>2023年11月05日</p><p>従業員の健康は、企業の生産性や持続的な成長に直結する重要な要素です。労働安全衛生法により、一定規模以上の事業場には産業医の選任が義務付けられていますが、中小企業においてはそのリソース確保が課題となることも少なくありません。産業医は、従業員の健康管理、職場環境の改善、休職・復職支援など、多岐にわたる役割を担い、企業と従業員の双方にとって非常に重要な存在です。</p><p>クレアクリニックでは、オンラインでの産業医相談を提供しており、特にリソースが限られがちな中小企業の皆様にご活用いただきたいと考えています。オンラインであれば、場所の制約なく、必要な時に専門の産業医によるアドバイスを受けることが可能です。従業員のメンタルヘルス不調や健康問題に早期に対応し、健康で働きやすい職場環境づくりをサポートいたします。</p><p class=\'text-right text-sm text-gray-600 mt-4\'>クレアクリニック編集部</p>'); return false;" class="mt-4 text-sky-600 hover:underline font-semibold self-start">続きを読む</a>
+                                <a href="#" onclick="showModal('ブログ記事', '<h3>中小企業における産業医の役割とは？</h3><p class=\'text-sm text-gray-500 mb-3\'>2023年11月05日</p><p>従業員の健康は、企業の生産性や持続的な成長に直結する重要な要素です。労働安全衛生法により、一定規模以上の事業場には産業医の選任が義務付けられていますが、中小企業においてはそのリソース確保が課題となることも少なくありません。産業医は、従業員の健康管理、職場環境の改善、休職・復職支援など、多岐にわたる役割を担い、企業と従業員の双方にとって非常に重要な存在です。当クリニックでは、オンラインでの産業医相談を提供しており、特にリソースが限られがちな中小企業の皆様にご活用いただきたいと考えています。オンラインであれば、場所の制約なく、必要な時に専門の産業医によるアドバイスを受けることが可能です。従業員のメンタルヘルス不調や健康問題に早期に対応し、健康で働きやすい職場環境づくりをサポートいたします。</p><p class=\'text-right text-sm text-gray-600 mt-4\'>クレアクリニック編集部</p>'); return false;" class="mt-4 text-sky-600 hover:underline font-semibold self-start">続きを読む</a>
                             </div>
                         </div>
                     </section>
@@ -800,6 +883,12 @@
                 if (pages[pageName]) {
                     appContent.innerHTML = pages[pageName];
                     window.scrollTo(0, 0); // ページトップにスクロール
+
+                    // 新しいコンテンツがロードされたら、フェードインの監視を再開
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.add('fade-in-section');
+                        fadeObserver.observe(section);
+                    });
 
                     // チャットページの場合、チャットロジックを初期化
                     if (pageName === 'chat') {
