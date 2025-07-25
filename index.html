@@ -9,12 +9,7 @@
     <meta property="og:title" content="クレアクリニック オンラインHP：忙しいあなたのための安心オンライン診療">
     <meta property="og:description" content="オンライン診療でアフターピル、緊急避妊薬、カウンセリング、産業医相談を提供。忙しいあなたのための質の高い医療を自宅から手軽に。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://esora243.github.io/clear/"> <!-- 実際のURLに置き換えてください -->
-    <link rel="canonical" href="https://esora243.github.io/clear/"> <!-- 実際のURLに置き換えてください -->
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
+    <meta property="og:url" content="https://esora243.github.io/clear/"> <link rel="canonical" href="https://esora243.github.io/clear/"> <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -98,25 +93,20 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script> <!-- YOUR_GA_TRACKING_IDを置き換えてください -->
-    <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script> <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'YOUR_GA_TRACKING_ID');
     </script>
 
-    <!-- ヘッダー -->
     <header class="header-with-bg text-white shadow-lg sticky top-0 z-50 rounded-b-xl">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center header-content">
             <a href="#" class="text-3xl font-extrabold text-white tracking-tight rounded-md flex items-center" onclick="navigate('home'); return false;">
-                <!-- クレアクリニックのロゴ -->
                 <img src="ChatGPT Image 2025年6月29日 14_19_33.png" alt="クレアクリニック ロゴ" class="h-10 mr-2">
                 クレアクリニック
             </a>
             
-            <!-- ナビゲーション (デスクトップ) -->
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('home'); return false;">ホーム</a></li>
@@ -130,7 +120,6 @@
                 </ul>
             </nav>
 
-            <!-- ハンバーガーメニュー (モバイル) -->
             <button id="hamburger-menu" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-300">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -138,7 +127,6 @@
             </button>
         </div>
 
-        <!-- モバイルナビゲーションメニュー -->
         <nav id="mobile-menu" class="hidden md:hidden bg-sky-600 py-4 rounded-b-xl">
             <ul class="flex flex-col items-center space-y-4">
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('home'); closeMobileMenu(); return false;">ホーム</a></li>
@@ -153,12 +141,9 @@
         </nav>
     </header>
 
-    <!-- メインコンテンツ -->
     <main id="app-content" class="container mx-auto px-4 py-8 min-h-[calc(100vh-200px)]">
-        <!-- コンテンツはJavaScriptによってここに動的にロードされます -->
-    </main>
+        </main>
 
-    <!-- フッター -->
     <footer class="bg-gray-800 text-gray-300 py-8 mt-12 rounded-t-xl shadow-inner">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -191,7 +176,6 @@
         </div>
     </footer>
 
-    <!-- カスタムモーダル (alert/confirmの代わり) -->
     <div id="custom-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden">
         <div class="bg-white p-8 rounded-lg shadow-xl max-w-sm w-full text-center relative">
             <h3 id="modal-title" class="text-2xl font-bold text-sky-700 mb-4"></h3>
@@ -373,7 +357,6 @@
                 home: `
                     <section class="bg-white p-8 rounded-xl shadow-xl mb-12 text-center">
                         <div class="relative overflow-hidden rounded-lg mb-8">
-                            <!-- メインビジュアル: 笑顔の患者と医師がオンラインで対話しているイメージ -->
                             <img src="医師患者.webp" alt="オンライン診療のイメージ：PCやスマホで診察を受ける人々" class="w-full h-auto object-cover rounded-lg">
                             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 rounded-lg">
                                 <h2 class="text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
@@ -388,19 +371,16 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
-                                <!-- サービスアイコン: アフターピル。アフターピルの迅速な処方・発送をイメージさせる画像。 -->
                                 <img src="アフターピル画像.jpg" alt="アフターピルの迅速発送イメージ" class="mx-auto mb-3 rounded-full w-24 h-24 object-cover">
                                 <h3 class="text-xl font-bold text-sky-700 mb-3">アフターピルの処方</h3>
                                 <p class="text-gray-600 text-sm">すぐに発送します。電話のみで結構ですので安心してご相談いただけます。</p>
                             </div>
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
-                                <!-- サービスアイコン: カウンセリング。オンラインでカウンセリングを受けている穏やかなイメージ。 -->
                                 <img src="女性医師患者.jpg" alt="オンラインカウンセリング中のイメージ" class="mx-auto mb-3 rounded-full w-24 h-24 object-cover">
                                 <h3 class="text-xl font-bold text-sky-700 mb-3">メンタルカウンセリング</h3>
                                 <p class="text-gray-600 text-sm">心の健康をサポート。専門のカウンセラーがあなたの悩みに寄り添います。</p>
                             </div>
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
-                                <!-- サービスアイコン: 産業医相談。オンラインで産業医が相談に乗っているイメージ。 -->
                                 <img src="女性医師患者.jpg" alt="オンライン産業医相談中のイメージ" class="mx-auto mb-3 rounded-full w-24 h-24 object-cover">
                                 <h3 class="text-xl font-bold text-sky-700 mb-3">産業医による相談</h3>
                                 <p class="text-gray-600 text-sm">職場のメンタルヘルスや健康問題について、産業医が専門的なアドバイスを提供します。</p>
@@ -532,9 +512,7 @@
                         </p>
 
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                            <!-- サービス1: アフターピルの処方 -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200">
-                                <!-- アフターピル処方のイメージ: 医薬品のパッケージや、手元に薬を持つ人など。清潔感があり、迅速さを連想させる構図。 -->
                                 <img src="アフターピル説明.jpg" alt="アフターピルのパッケージと迅速発送のイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">アフターピルの処方</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
@@ -552,9 +530,7 @@
                                 </a>
                             </div>
 
-                            <!-- サービス2: メンタルカウンセリング -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200">
-                                <!-- メンタルカウンセリングのイメージ: オンラインでカウンセリングを受けている人、穏やかな表情の人など。安心感や共感を伝える写真。 -->
                                 <img src="女性医師患者.jpg" alt="オンラインでカウンセリングを受ける人のイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">メンタルカウンセリング</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
@@ -572,9 +548,7 @@
                                 </a>
                             </div>
 
-                            <!-- サービス3: 産業医による相談 -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200 lg:col-span-2">
-                                <!-- 産業医相談のイメージ: 医師がオンラインでビジネスパーソンと話している様子、職場の風景など。プロフェッショナルな雰囲気。 -->
                                 <img src="女性医師患者.jpg" alt="オンラインで産業医が相談に乗るイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">産業医による相談</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
@@ -628,7 +602,6 @@
                     <section class="bg-white p-8 rounded-xl shadow-xl mb-12">
                         <h2 class="text-4xl font-bold text-sky-700 mb-8 text-center">当院について</h2>
                         <div class="text-center mb-10">
-                            <!-- クリニックの理念・ビジョンを示すイメージ: 穏やかな風景、希望を感じさせる抽象画、またはクリニックの清潔感のある内観など。安心感や信頼感を伝える写真。 -->
                             <img src="s03_IS_about.webp" alt="クレアクリニックの理念を示す穏やかなイメージ" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-6">
                             <h3 class="text-3xl font-bold text-sky-800 mb-4">クレアクリニックの理念・ビジョン</h3>
                             <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
@@ -671,7 +644,6 @@
                                 現在はコンテンツ準備中ですが、将来的には当クリニックの専門医やスタッフの経歴、専門分野、
                                 患者様へのメッセージなどを掲載し、より安心してご利用いただけるよう努めてまいります。
                             </p>
-                            <!-- 医師・スタッフ紹介のイメージ: 笑顔の医師やスタッフの集合写真、または個別のポートレート。プロフェッショナルでありながらも親しみやすさを伝える写真。 -->
                             <img src="医者の集まった画像.jpg" alt="笑顔の医師とスタッフの集合写真イメージ" class="w-full max-w-xl mx-auto rounded-lg shadow-md mt-6">
                         </div>
 
@@ -744,7 +716,6 @@
                         <h2 class="text-4xl font-bold text-sky-700 mb-8 text-center">よくあるご質問 (FAQ)</h2>
 
                         <div class="space-y-6 max-w-3xl mx-auto">
-                            <!-- FAQ Item 1 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. オンライン診療の予約方法を教えてください。</span>
@@ -755,7 +726,6 @@
                                 </div>
                             </div>
 
-                            <!-- FAQ Item 2 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. 診療時間は何時までですか？</span>
@@ -766,7 +736,6 @@
                                 </div>
                             </div>
 
-                            <!-- FAQ Item 3 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. お薬はどのように受け取れますか？</span>
@@ -777,7 +746,6 @@
                                 </div>
                             </div>
 
-                            <!-- FAQ Item 4 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. プライバシーは保護されますか？</span>
@@ -798,7 +766,6 @@
                         </p>
 
                         <div id="chat-box" class="h-96 overflow-y-auto border border-gray-300 p-4 rounded-lg mb-4 bg-gray-50 flex flex-col space-y-4">
-                            <!-- チャットメッセージがここに挿入されます -->
                             <div class="chat-message bot p-3 max-w-[80%] text-left shadow-sm">
                                 <p class="text-gray-800">こんにちは！クレアクリニックのチャットサポートです。何かご質問はありますか？</p>
                             </div>
@@ -812,6 +779,10 @@
                             <button class="quick-reply-button" data-question="アフターピルについて">アフターピルについて</button>
                             <button class="quick-reply-button" data-question="カウンセリングについて">カウンセリングについて</button>
                             <button class="quick-reply-button" data-question="産業医相談について">産業医相談について</button>
+                            <button class="quick-reply-button" data-question="費用について">費用について</button>
+                            <button class="quick-reply-button" data-question="キャンセルについて">キャンセルについて</button>
+                            <button class="quick-reply-button" data-question="クリニックの場所">クリニックの場所</button>
+                            <button class="quick-reply-button" data-question="医師について">医師について</button>
                         </div>
 
                         <form id="chat-form" class="flex gap-2">
@@ -839,7 +810,6 @@
                         </p>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <!-- ブログ記事1 -->
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
                                 <img src="s06_IS_recommend01.webp" alt="オンライン診療のメリットを紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">オンライン診療のメリットを徹底解説！</h3>
@@ -850,7 +820,6 @@
                                 <a href="#" onclick="showModal('ブログ記事', '<h3>オンライン診療のメリットを徹底解説！</h3><p class=\'text-sm text-gray-500 mb-3\'>2023年11月15日</p><p>オンライン診療は、時間や場所にとらわれずに医療を受けられる画期的なサービスです。この記事では、その具体的なメリットを深掘りします。例えば、病院までの移動時間や交通費の削減、待合室での感染リスクの回避、そして何よりもご自身のプライベートな空間で安心して相談できる点が挙げられます。忙しいビジネスパーソンや、遠方にお住まいの方、小さなお子様がいらっしゃる方など、様々なライフスタイルの方にとって、オンライン診療は大きな助けとなるでしょう。</p><p>また、デリケートな健康の悩みも、対面よりもリラックスして話せるという声も多く聞かれます。当クリニックでは、患者様が安心してオンライン診療をご利用いただけるよう、万全のセキュリティ対策と丁寧なサポート体制を整えています。ぜひ一度、オンライン診療の便利さを体験してみてください。</p><p class=\'text-right text-sm text-gray-600 mt-4\'>クレアクリニック編集部</p>'); return false;" class="mt-4 text-sky-600 hover:underline font-semibold self-start">続きを読む</a>
                             </div>
 
-                            <!-- ブログ記事2 -->
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
                                 <img src="s06_IS_recommend02.webp" alt="心のケアの重要性を伝える画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">現代社会における心のケアの重要性</h3>
@@ -861,7 +830,6 @@
                                 <a href="#" onclick="showModal('ブログ記事', '<h3>現代社会における心のケアの重要性</h3><p class=\'text-sm text-gray-500 mb-3\'>2023年11月10日</p><p>現代社会は、情報過多、人間関係の複雑化、仕事のプレッシャーなど、様々なストレス要因に満ちています。このような環境下で、私たちは知らず知らずのうちに心に負担を抱えがちです。心の健康は、身体の健康と同様に、日々の生活の質（QOL）に直結します。疲れや不調を感じたら、それは心が発する大切なサインです。無理をせず、早めに専門家へ相談することが、深刻な状態になるのを防ぐ第一歩となります。</p><p>クレアクリニックでは、オンラインでのメンタルカウンセリングを通じて、皆様の心の健康をサポートしています。自宅やプライベートな空間から、安心してご自身のペースで心のケアを始めることができます。少しでも気になることがあれば、お気軽にご相談ください。専門のカウンセラーが、あなたの心に寄り添い、共に解決策を探していきます。</p><p class=\'text-right text-sm text-gray-600 mt-4\'>クレアクリニック編集部</p>'); return false;" class="mt-4 text-sky-600 hover:underline font-semibold self-start">続きを読む</a>
                             </div>
 
-                            <!-- ブログ記事3 -->
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
                                 <img src="s06_IS_recommend01.webp" alt="産業医の役割を紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">中小企業における産業医の役割とは？</h3>
@@ -923,19 +891,57 @@
                 const chatErrorMessage = document.getElementById('chat-error-message');
                 const quickRepliesContainer = document.getElementById('quick-replies');
 
-                // よくある質問と回答の辞書
+                // よくある質問と回答の辞書 (拡張版)
                 const faqResponses = {
                     '予約について': 'ご予約は、ヘッダーの「今すぐ診療予約」ボタンからお申し込みいただけます。ご希望の日時と内容をご入力ください。',
-                    '診療時間について': 'クレアクリニックはオンライン診療のため、24時間ご予約を受け付けております。実際の診療時間は、ご予約時にご希望いただけます。',
-                    'お薬の受け取り': '診療後、医師が必要と判断した処方薬は、その日のうちに指定のご住所へ発送いたします。',
-                    'プライバシー保護': '患者様の個人情報やご相談内容は厳重に管理し、プライバシーを最大限に尊重いたします。安心してご相談ください。',
-                    'アフターピルについて': 'アフターピル（緊急避妊薬）の処方を行っております。オンラインで迅速にご相談いただけます。',
-                    'カウンセリングについて': 'メンタルカウンセリングでは、心の健康に関する幅広いご相談に対応しております。専門のカウンセラーが担当いたします。',
-                    '産業医相談について': '職場のストレスや健康問題について、産業医が専門的なアドバイスを提供します。中小企業の従業員様からのご相談も歓迎です。',
-                    '料金について': '各診療内容の料金については、それぞれのサービス詳細ページに記載しております。',
-                    'キャンセルについて': '商品の特性上、ご購入後のキャンセル・返品は承っておりません。詳細は法的情報ページをご確認ください。',
-                    'ありがとう': 'どういたしまして！他にご不明な点はございませんか？',
-                    'こんにちは': 'こんにちは！何かお手伝いできることはありますか？'
+                    '診療時間について': 'クレアクリニックはオンライン診療のため、24時間ご予約を受け付けております。実際の診療時間は、ご予約時にご希望の時間帯をご選択いただけます。',
+                    'お薬の受け取り': '診療後、医師が必要と判断した処方薬は、その日のうちに指定のご住所へ発送いたします。通常、発送から1～3日でお手元に届きます。',
+                    'プライバシー保護': '患者様の個人情報やご相談内容は厳重に管理し、プライバシーを最大限に尊重いたします。完全オンラインかつ完全予約制のため、安心してご相談いただけます。',
+                    'アフターピルについて': 'アフターピル（緊急避妊薬）の処方を行っております。オンラインで迅速にご相談いただけます。緊急性が高い場合は、お電話でのご相談も可能です。',
+                    'カウンセリングについて': 'メンタルカウンセリングでは、ストレス、不安、うつ病、人間関係の悩みなど、心の健康に関する幅広いご相談に対応しております。専門のカウンセラーが担当いたします。',
+                    '産業医相談について': '職場のストレス、過重労働、ハラスメント、休職・復職に関する問題など、働く上での健康問題について、産業医が専門的なアドバイスとサポートを提供します。中小企業の従業員様からのご相談も歓迎です。',
+                    '費用について': '各診療内容の費用は、サービス詳細ページに記載しております。初診料、再診料、お薬代などが含まれます。ご不明な点はお気軽にお問い合わせください。',
+                    'キャンセルについて': '商品の特性上、ご購入後のキャンセル・返品は承っておりません。予約のキャンセルや変更については、予約日の前日までにご連絡いただければ対応可能です。詳細は法的情報ページをご確認ください。',
+                    'クリニックの場所': 'クレアクリニックはオンライン専門のクリニックのため、物理的な来院場所はございません。ご自宅や任意の場所からオンラインで診療を受けていただけます。',
+                    '医師について': '当クリニックには、産婦人科医、精神科医、産業医など、各分野の専門医が在籍しております。患者様の症状やご希望に合わせて、最適な医師が担当いたします。医師の詳しい情報は「当院について」ページで準備中です。',
+                    '支払い方法': 'お支払い方法はPayPay、または銀行振込をご利用いただけます。',
+                    '健康相談': '一般的な健康に関するご相談も承っております。ご自身の体調で気になることがあれば、お気軽にご質問ください。',
+                    'オンライン診療のメリット': 'オンライン診療は、場所を選ばず診察を受けられる、待ち時間がない、交通費や移動の負担がない、プライバシーが保護される、感染症リスクが低いなどのメリットがあります。',
+                    '予約変更': '予約の変更をご希望の場合は、予約確認メールに記載されている連絡先、または当サイトのお問い合わせフォームよりご連絡ください。',
+                    '再診': '再診もオンラインで可能です。継続的な治療やカウンセリングが必要な場合も、安心してご利用いただけます。',
+                    '処方箋': '当クリニックでは、オンライン診療後、必要に応じて処方薬を直接ご自宅へ発送いたしますので、処方箋の受け取りのために来院いただく必要はございません。',
+                    '薬の副作用': '処方されるお薬の副作用については、診察時に医師から詳しくご説明いたします。ご心配な点があれば、遠慮なくご質問ください。',
+                    '緊急時': '緊急性の高い症状や、急を要する場合は、速やかに最寄りの医療機関を受診してください。当オンライン診療は緊急対応には限りがあります。',
+                    '利用方法': 'ご利用の流れは、トップページの「ご利用の流れ」セクションをご覧ください。予約から診療、お薬の発送まで、簡単な3ステップで完了します。',
+                    'ありがとう': 'どういたしまして！他にご不明な点はございませんか？いつでもお声がけください。',
+                    'こんにちは': 'こんにちは！クレアクリニックへようこそ。どのようなご用件でしょうか？',
+                    'さようなら': 'またのご利用をお待ちしております。お大事になさってください。',
+                    '質問': 'はい、どのようなご質問でしょうか？お気軽にお尋ねください。',
+                    '困っている': 'どのようなことにお困りですか？詳しく教えていただけますでしょうか。専門の医師やカウンセラーがお力になれるかもしれません。',
+                    'よくわからない': 'どの点についてよくわからないか、もう少し具体的に教えていただけますか？分かりやすくご説明させていただきます。',
+                    'サイトについて': 'このウェブサイトは、クレアクリニックのオンライン診療サービスについてご案内しています。トップページや各サービスページをご覧ください。',
+                    '中小企業': '中小企業の従業員様向けの産業医相談も承っております。職場のメンタルヘルスや健康問題について、専門医がサポートいたします。',
+                    'ブログ': '当クリニックの公式ブログでは、健康に関する最新情報やオンライン診療の活用術などを発信しています。ぜひご覧ください。',
+                    'お問い合わせ': 'チャットで解決しない場合は、フッターに記載のメールアドレスまたは電話番号より直接お問い合わせください。',
+                    'オンライン診療': 'オンライン診療は、インターネットを通じて医師の診察を受けられるサービスです。ご自宅などから手軽に医療を受けられます。',
+                    '緊急避妊薬': '緊急避妊薬はアフターピルのことです。避妊に失敗した際などに、妊娠を回避するために使用するお薬です。',
+                    'メンタルヘルス': 'メンタルヘルスに関するご相談は、メンタルカウンセリングで専門のカウンセラーが対応いたします。心の健康をサポートします。',
+                    'ストレス': 'ストレスに関するお悩みは、メンタルカウンセリングや産業医相談で専門家にご相談いただけます。',
+                    '休職': '休職や復職に関するご相談は、産業医による相談で専門的なアドバイスを受けることができます。',
+                    '診察': 'オンラインでの診察は、ビデオ通話を通じて行われます。医師が患者様の状態を伺い、適切な診断やアドバイスを行います。',
+                    '薬の配送': 'お薬は、診療後すぐに発送手続きを行い、ご指定の住所へ配送いたします。通常、発送から1～3日でお届けできます。',
+                    '予約確認': '予約確認は、ご予約完了時にお送りするメールでご確認いただけます。メールが見当たらない場合は、お問い合わせください。',
+                    '医療費控除': '医療費控除については、確定申告の際に医療費の領収書などが必要になります。詳細はお近くの税務署にご確認いただくか、専門家にご相談ください。',
+                    '保険適用': '当クリニックのオンライン診療は、自由診療となりますので、保険適用外です。費用については「費用について」の項目をご確認ください。',
+                    'ご意見': '貴重なご意見ありがとうございます。今後のサービス改善の参考にさせていただきます。',
+                    'ホームページ': '当クリニックのホームページへようこそ！何かお探しですか？',
+                    '最新情報': '最新情報やお知らせは、トップページのお知らせ欄や公式ブログでご確認いただけます。',
+                    '安全性': '患者様の情報は厳重に管理されており、オンライン診療システムもセキュリティ対策を講じておりますので、安心してご利用いただけます。',
+                    '対応時間': 'オンラインでのご予約は24時間可能です。診療時間はご予約時に選択いただけます。',
+                    '遠隔診療': '遠隔診療とは、オンライン診療と同じ意味です。遠隔地にいながらにして医療を受けられるサービスです。',
+                    'オンラインカウンセリング': 'オンラインカウンセリングは、ご自宅やプライベートな空間から、専門のカウンセラーによる心のケアを受けられるサービスです。',
+                    '産業医サービス': '産業医サービスは、企業や従業員の健康管理をサポートする専門医による相談サービスです。特に中小企業様にご利用いただけます。',
+                    '診察の流れ': '診察の流れは、予約 → オンライン診療 → お薬の発送、の3ステップです。詳細はトップページをご覧ください。'
                 };
 
                 // クイック返信ボタンのイベントリスナー
@@ -971,27 +977,55 @@
                         let botResponse = '申し訳ありません、その質問にはお答えできません。別の質問をお試しいただくか、お電話でお問い合わせください。';
                         
                         // キーワードに基づいて応答を検索
-                        // ユーザーの入力がFAQの質問と完全に一致するか、部分的に含むかをチェック
                         const lowerCaseMessage = message.toLowerCase();
-                        const matchedKeyword = Object.keys(faqResponses).find(keyword => 
-                            lowerCaseMessage.includes(keyword.toLowerCase())
-                        );
+                        let foundMatch = false;
 
-                        if (matchedKeyword) {
-                            botResponse = faqResponses[matchedKeyword];
-                        } else {
-                            // より柔軟なキーワードマッチング（簡易版）
-                            if (lowerCaseMessage.includes('予約')) botResponse = faqResponses['予約について'];
-                            else if (lowerCaseMessage.includes('時間') || lowerCaseMessage.includes('診療時間')) botResponse = faqResponses['診療時間について'];
-                            else if (lowerCaseMessage.includes('薬') || lowerCaseMessage.includes('受け取り')) botResponse = faqResponses['お薬の受け取り'];
-                            else if (lowerCaseMessage.includes('プライバシー')) botResponse = faqResponses['プライバシー保護'];
-                            else if (lowerCaseMessage.includes('アフターピル')) botResponse = faqResponses['アフターピルについて'];
-                            else if (lowerCaseMessage.includes('カウンセリング')) botResponse = faqResponses['カウンセリングについて'];
-                            else if (lowerCaseMessage.includes('産業医')) botResponse = faqResponses['産業医相談について'];
-                            else if (lowerCaseMessage.includes('料金') || lowerCaseMessage.includes('費用')) botResponse = faqResponses['料金について'];
-                            else if (lowerCaseMessage.includes('キャンセル') || lowerCaseMessage.includes('返品')) botResponse = faqResponses['キャンセルについて'];
-                            else if (lowerCaseMessage.includes('ありがとう')) botResponse = faqResponses['ありがとう'];
-                            else if (lowerCaseMessage.includes('こんにちは')) botResponse = faqResponses['こんにちは'];
+                        // より多くのキーワードと応答をチェック
+                        for (const keyword in faqResponses) {
+                            if (lowerCaseMessage.includes(keyword.toLowerCase())) {
+                                botResponse = faqResponses[keyword];
+                                foundMatch = true;
+                                break;
+                            }
+                        }
+
+                        // 特定のキーワードにマッチしない場合のより一般的な応答
+                        if (!foundMatch) {
+                            if (lowerCaseMessage.includes('ありがとう') || lowerCaseMessage.includes('ありがとうございます')) {
+                                botResponse = faqResponses['ありがとう'];
+                            } else if (lowerCaseMessage.includes('こんにちは') || lowerCaseMessage.includes('こんにちわ')) {
+                                botResponse = faqResponses['こんにちは'];
+                            } else if (lowerCaseMessage.includes('さようなら') || lowerCaseMessage.includes('またね')) {
+                                botResponse = faqResponses['さようなら'];
+                            } else if (lowerCaseMessage.includes('質問')) {
+                                botResponse = faqResponses['質問'];
+                            } else if (lowerCaseMessage.includes('困っている') || lowerCaseMessage.includes('困ってます')) {
+                                botResponse = faqResponses['困っている'];
+                            } else if (lowerCaseMessage.includes('よくわからない') || lowerCaseMessage.includes('不明')) {
+                                botResponse = faqResponses['よくわからない'];
+                            } else if (lowerCaseMessage.includes('サイト') || lowerCaseMessage.includes('ホームページ')) {
+                                botResponse = faqResponses['サイトについて'];
+                            } else if (lowerCaseMessage.includes('最新情報') || lowerCaseMessage.includes('ニュース')) {
+                                botResponse = faqResponses['最新情報'];
+                            } else if (lowerCaseMessage.includes('安全性') || lowerCaseMessage.includes('安心')) {
+                                botResponse = faqResponses['安全性'];
+                            } else if (lowerCaseMessage.includes('対応時間') || lowerCaseMessage.includes('何時まで')) {
+                                botResponse = faqResponses['対応時間'];
+                            } else if (lowerCaseMessage.includes('遠隔診療')) {
+                                botResponse = faqResponses['遠隔診療'];
+                            } else if (lowerCaseMessage.includes('オンラインカウンセリング')) {
+                                botResponse = faqResponses['オンラインカウンセリング'];
+                            } else if (lowerCaseMessage.includes('産業医サービス')) {
+                                botResponse = faqResponses['産業医サービス'];
+                            } else if (lowerCaseMessage.includes('診察の流れ')) {
+                                botResponse = faqResponses['診察の流れ'];
+                            } else if (lowerCaseMessage.includes('医療費控除')) {
+                                botResponse = faqResponses['医療費控除'];
+                            } else if (lowerCaseMessage.includes('保険適用')) {
+                                botResponse = faqResponses['保険適用'];
+                            } else if (lowerCaseMessage.includes('ご意見') || lowerCaseMessage.includes('意見')) {
+                                botResponse = faqResponses['ご意見'];
+                            }
                         }
 
                         appendMessage(botResponse, 'bot');
