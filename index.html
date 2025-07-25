@@ -9,7 +9,12 @@
     <meta property="og:title" content="クレアクリニック オンラインHP：忙しいあなたのための安心オンライン診療">
     <meta property="og:description" content="オンライン診療でアフターピル、緊急避妊薬、カウンセリング、産業医相談を提供。忙しいあなたのための質の高い医療を自宅から手軽に。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://esora243.github.io/clear/"> <link rel="canonical" href="https://esora243.github.io/clear/"> <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="og:url" content="https://esora243.github.io/clear/"> <!-- 実際のURLに置き換えてください -->
+    <link rel="canonical" href="https://esora243.github.io/clear/"> <!-- 実際のURLに置き換えてください -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -93,20 +98,25 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script> <script>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script> <!-- YOUR_GA_TRACKING_IDを置き換えてください -->
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'YOUR_GA_TRACKING_ID');
     </script>
 
+    <!-- ヘッダー -->
     <header class="header-with-bg text-white shadow-lg sticky top-0 z-50 rounded-b-xl">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center header-content">
             <a href="#" class="text-3xl font-extrabold text-white tracking-tight rounded-md flex items-center" onclick="navigate('home'); return false;">
+                <!-- クレアクリニックのロゴ -->
                 <img src="ChatGPT Image 2025年6月29日 14_19_33.png" alt="クレアクリニック ロゴ" class="h-10 mr-2">
                 クレアクリニック
             </a>
             
+            <!-- ナビゲーション (デスクトップ) -->
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('home'); return false;">ホーム</a></li>
@@ -120,6 +130,7 @@
                 </ul>
             </nav>
 
+            <!-- ハンバーガーメニュー (モバイル) -->
             <button id="hamburger-menu" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-300">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -127,6 +138,7 @@
             </button>
         </div>
 
+        <!-- モバイルナビゲーションメニュー -->
         <nav id="mobile-menu" class="hidden md:hidden bg-sky-600 py-4 rounded-b-xl">
             <ul class="flex flex-col items-center space-y-4">
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('home'); closeMobileMenu(); return false;">ホーム</a></li>
@@ -141,9 +153,12 @@
         </nav>
     </header>
 
+    <!-- メインコンテンツ -->
     <main id="app-content" class="container mx-auto px-4 py-8 min-h-[calc(100vh-200px)]">
-        </main>
+        <!-- コンテンツはJavaScriptによってここに動的にロードされます -->
+    </main>
 
+    <!-- フッター -->
     <footer class="bg-gray-800 text-gray-300 py-8 mt-12 rounded-t-xl shadow-inner">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -176,6 +191,7 @@
         </div>
     </footer>
 
+    <!-- カスタムモーダル (alert/confirmの代わり) -->
     <div id="custom-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden">
         <div class="bg-white p-8 rounded-lg shadow-xl max-w-sm w-full text-center relative">
             <h3 id="modal-title" class="text-2xl font-bold text-sky-700 mb-4"></h3>
@@ -357,6 +373,7 @@
                 home: `
                     <section class="bg-white p-8 rounded-xl shadow-xl mb-12 text-center">
                         <div class="relative overflow-hidden rounded-lg mb-8">
+                            <!-- メインビジュアル: 笑顔の患者と医師がオンラインで対話しているイメージ -->
                             <img src="医師患者.webp" alt="オンライン診療のイメージ：PCやスマホで診察を受ける人々" class="w-full h-auto object-cover rounded-lg">
                             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 rounded-lg">
                                 <h2 class="text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
@@ -371,16 +388,19 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
+                                <!-- サービスアイコン: アフターピル。アフターピルの迅速な処方・発送をイメージさせる画像。 -->
                                 <img src="アフターピル画像.jpg" alt="アフターピルの迅速発送イメージ" class="mx-auto mb-3 rounded-full w-24 h-24 object-cover">
                                 <h3 class="text-xl font-bold text-sky-700 mb-3">アフターピルの処方</h3>
                                 <p class="text-gray-600 text-sm">すぐに発送します。電話のみで結構ですので安心してご相談いただけます。</p>
                             </div>
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
+                                <!-- サービスアイコン: カウンセリング。オンラインでカウンセリングを受けている穏やかなイメージ。 -->
                                 <img src="女性医師患者.jpg" alt="オンラインカウンセリング中のイメージ" class="mx-auto mb-3 rounded-full w-24 h-24 object-cover">
                                 <h3 class="text-xl font-bold text-sky-700 mb-3">メンタルカウンセリング</h3>
                                 <p class="text-gray-600 text-sm">心の健康をサポート。専門のカウンセラーがあなたの悩みに寄り添います。</p>
                             </div>
                             <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
+                                <!-- サービスアイコン: 産業医相談。オンラインで産業医が相談に乗っているイメージ。 -->
                                 <img src="女性医師患者.jpg" alt="オンライン産業医相談中のイメージ" class="mx-auto mb-3 rounded-full w-24 h-24 object-cover">
                                 <h3 class="text-xl font-bold text-sky-700 mb-3">産業医による相談</h3>
                                 <p class="text-gray-600 text-sm">職場のメンタルヘルスや健康問題について、産業医が専門的なアドバイスを提供します。</p>
@@ -512,7 +532,9 @@
                         </p>
 
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                            <!-- サービス1: アフターピルの処方 -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200">
+                                <!-- アフターピル処方のイメージ: 医薬品のパッケージや、手元に薬を持つ人など。清潔感があり、迅速さを連想させる構図。 -->
                                 <img src="アフターピル説明.jpg" alt="アフターピルのパッケージと迅速発送のイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">アフターピルの処方</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
@@ -530,7 +552,9 @@
                                 </a>
                             </div>
 
+                            <!-- サービス2: メンタルカウンセリング -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200">
+                                <!-- メンタルカウンセリングのイメージ: オンラインでカウンセリングを受けている人、穏やかな表情の人など。安心感や共感を伝える写真。 -->
                                 <img src="女性医師患者.jpg" alt="オンラインでカウンセリングを受ける人のイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">メンタルカウンセリング</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
@@ -548,7 +572,9 @@
                                 </a>
                             </div>
 
+                            <!-- サービス3: 産業医による相談 -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200 lg:col-span-2">
+                                <!-- 産業医相談のイメージ: 医師がオンラインでビジネスパーソンと話している様子、職場の風景など。プロフェッショナルな雰囲気。 -->
                                 <img src="女性医師患者.jpg" alt="オンラインで産業医が相談に乗るイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">産業医による相談</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
@@ -602,6 +628,7 @@
                     <section class="bg-white p-8 rounded-xl shadow-xl mb-12">
                         <h2 class="text-4xl font-bold text-sky-700 mb-8 text-center">当院について</h2>
                         <div class="text-center mb-10">
+                            <!-- クリニックの理念・ビジョンを示すイメージ: 穏やかな風景、希望を感じさせる抽象画、またはクリニックの清潔感のある内観など。安心感や信頼感を伝える写真。 -->
                             <img src="s03_IS_about.webp" alt="クレアクリニックの理念を示す穏やかなイメージ" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mb-6">
                             <h3 class="text-3xl font-bold text-sky-800 mb-4">クレアクリニックの理念・ビジョン</h3>
                             <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
@@ -644,6 +671,7 @@
                                 現在はコンテンツ準備中ですが、将来的には当クリニックの専門医やスタッフの経歴、専門分野、
                                 患者様へのメッセージなどを掲載し、より安心してご利用いただけるよう努めてまいります。
                             </p>
+                            <!-- 医師・スタッフ紹介のイメージ: 笑顔の医師やスタッフの集合写真、または個別のポートレート。プロフェッショナルでありながらも親しみやすさを伝える写真。 -->
                             <img src="医者の集まった画像.jpg" alt="笑顔の医師とスタッフの集合写真イメージ" class="w-full max-w-xl mx-auto rounded-lg shadow-md mt-6">
                         </div>
 
@@ -716,7 +744,8 @@
                         <h2 class="text-4xl font-bold text-sky-700 mb-8 text-center">よくあるご質問 (FAQ)</h2>
 
                         <div class="space-y-6 max-w-3xl mx-auto">
-                            <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                            
+<div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. オンライン診療の予約方法を教えてください。</span>
                                     <svg class="w-6 h-6 text-sky-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -726,7 +755,8 @@
                                 </div>
                             </div>
 
-                            <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                            
+<div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. 診療時間は何時までですか？</span>
                                     <svg class="w-6 h-6 text-sky-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -736,7 +766,8 @@
                                 </div>
                             </div>
 
-                            <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                            
+<div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. お薬はどのように受け取れますか？</span>
                                     <svg class="w-6 h-6 text-sky-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -746,7 +777,8 @@
                                 </div>
                             </div>
 
-                            <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                            
+<div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. プライバシーは保護されますか？</span>
                                     <svg class="w-6 h-6 text-sky-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -766,7 +798,8 @@
                         </p>
 
                         <div id="chat-box" class="h-96 overflow-y-auto border border-gray-300 p-4 rounded-lg mb-4 bg-gray-50 flex flex-col space-y-4">
-                            <div class="chat-message bot p-3 max-w-[80%] text-left shadow-sm">
+                            
+<div class="chat-message bot p-3 max-w-[80%] text-left shadow-sm">
                                 <p class="text-gray-800">こんにちは！クレアクリニックのチャットサポートです。何かご質問はありますか？</p>
                             </div>
                         </div>
@@ -810,7 +843,8 @@
                         </p>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
+                            
+<div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
                                 <img src="s06_IS_recommend01.webp" alt="オンライン診療のメリットを紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">オンライン診療のメリットを徹底解説！</h3>
                                 <p class="text-sm text-gray-500 mb-3">2023年11月15日</p>
@@ -820,7 +854,8 @@
                                 <a href="#" onclick="showModal('ブログ記事', '<h3>オンライン診療のメリットを徹底解説！</h3><p class=\'text-sm text-gray-500 mb-3\'>2023年11月15日</p><p>オンライン診療は、時間や場所にとらわれずに医療を受けられる画期的なサービスです。この記事では、その具体的なメリットを深掘りします。例えば、病院までの移動時間や交通費の削減、待合室での感染リスクの回避、そして何よりもご自身のプライベートな空間で安心して相談できる点が挙げられます。忙しいビジネスパーソンや、遠方にお住まいの方、小さなお子様がいらっしゃる方など、様々なライフスタイルの方にとって、オンライン診療は大きな助けとなるでしょう。</p><p>また、デリケートな健康の悩みも、対面よりもリラックスして話せるという声も多く聞かれます。当クリニックでは、患者様が安心してオンライン診療をご利用いただけるよう、万全のセキュリティ対策と丁寧なサポート体制を整えています。ぜひ一度、オンライン診療の便利さを体験してみてください。</p><p class=\'text-right text-sm text-gray-600 mt-4\'>クレアクリニック編集部</p>'); return false;" class="mt-4 text-sky-600 hover:underline font-semibold self-start">続きを読む</a>
                             </div>
 
-                            <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
+                            
+<div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
                                 <img src="s06_IS_recommend02.webp" alt="心のケアの重要性を伝える画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">現代社会における心のケアの重要性</h3>
                                 <p class="text-sm text-gray-500 mb-3">2023年11月10日</p>
@@ -830,7 +865,8 @@
                                 <a href="#" onclick="showModal('ブログ記事', '<h3>現代社会における心のケアの重要性</h3><p class=\'text-sm text-gray-500 mb-3\'>2023年11月10日</p><p>現代社会は、情報過多、人間関係の複雑化、仕事のプレッシャーなど、様々なストレス要因に満ちています。このような環境下で、私たちは知らず知らずのうちに心に負担を抱えがちです。心の健康は、身体の健康と同様に、日々の生活の質（QOL）に直結します。疲れや不調を感じたら、それは心が発する大切なサインです。無理をせず、早めに専門家へ相談することが、深刻な状態になるのを防ぐ第一歩となります。</p><p>クレアクリニックでは、オンラインでのメンタルカウンセリングを通じて、皆様の心の健康をサポートしています。自宅やプライベートな空間から、安心してご自身のペースで心のケアを始めることができます。少しでも気になることがあれば、お気軽にご相談ください。専門のカウンセラーが、あなたの心に寄り添い、共に解決策を探していきます。</p><p class=\'text-right text-sm text-gray-600 mt-4\'>クレアクリニック編集部</p>'); return false;" class="mt-4 text-sky-600 hover:underline font-semibold self-start">続きを読む</a>
                             </div>
 
-                            <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
+                            
+<div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200 flex flex-col">
                                 <img src="s06_IS_recommend01.webp" alt="産業医の役割を紹介する画像" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-xl font-bold text-sky-800 mb-2">中小企業における産業医の役割とは？</h3>
                                 <p class="text-sm text-gray-500 mb-3">2023年11月05日</p>
@@ -891,10 +927,10 @@
                 const chatErrorMessage = document.getElementById('chat-error-message');
                 const quickRepliesContainer = document.getElementById('quick-replies');
 
-                // よくある質問と回答の辞書 (拡張版)
+                // よくある質問と回答の辞書
                 const faqResponses = {
                     '予約について': 'ご予約は、ヘッダーの「今すぐ診療予約」ボタンからお申し込みいただけます。ご希望の日時と内容をご入力ください。',
-                    '診療時間について': 'クレアクリニックはオンライン診療のため、24時間ご予約を受け付けております。実際の診療時間は、ご予約時にご希望の時間帯をご選択いただけます。',
+                    '診療時間について': 'クレアクリニックはオンライン診療のため、24時間ご予約を受け付けております。実際の診療時間は、ご予約時にご希望いただけます。',
                     'お薬の受け取り': '診療後、医師が必要と判断した処方薬は、その日のうちに指定のご住所へ発送いたします。通常、発送から1～3日でお手元に届きます。',
                     'プライバシー保護': '患者様の個人情報やご相談内容は厳重に管理し、プライバシーを最大限に尊重いたします。完全オンラインかつ完全予約制のため、安心してご相談いただけます。',
                     'アフターピルについて': 'アフターピル（緊急避妊薬）の処方を行っております。オンラインで迅速にご相談いただけます。緊急性が高い場合は、お電話でのご相談も可能です。',
