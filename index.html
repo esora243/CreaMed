@@ -79,7 +79,7 @@
             <a href="#" class="flex items-center" onclick="navigate('home'); return false;">
                 <!-- ユーザーが指定した画像名に合わせて仮のロゴ画像を使用 -->
                 <!-- 実際のロゴ画像に置き換えてください。例: <img src="path/to/your/logo.png" alt="クレアクリニック ロゴ" class="h-10"> -->
-                <img src="https://placehold.co/150x50/ADD8E6/000000?text=CreaClinic+Logo" alt="クレアクリニック ロゴ" class="h-10 rounded-md">
+                <img src="ChatGPT Image 2025年6月29日 14_19_33.png" alt="クレアクリニック ロゴ" class="h-10 rounded-md">
             </a>
             
             <!-- ナビゲーション (デスクトップ) -->
@@ -398,15 +398,40 @@
                         </div>
                     </section>
                     <section class="bg-white p-8 rounded-xl shadow-xl mb-12">
-                        <h3 class="text-3xl font-bold text-sky-700 mb-6 text-center">お知らせ</h3>
+                        <h3 class="text-3xl font-bold text-sky-700 mb-6 text-center">新着情報</h3>
                         <ul class="space-y-4">
-                            ${newsArticles.map(article => `
-                                <li class="border-b pb-4 last:border-b-0">
-                                    <span class="text-sm text-gray-500">${article.date}</span>
-                                    <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
+                            ${newsArticles.slice(0, 3).map(article => `
+                                <li class="border-b pb-4 last:border-b-0 flex justify-between items-center">
+                                    <div>
+                                        <span class="text-sm text-gray-500">${article.date}</span>
+                                        <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
+                                    </div>
+                                    <button onclick="editArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
+                                        編集
+                                    </button>
                                 </li>
                             `).join('')}
                         </ul>
+                        ${newsArticles.length > 3 ? `
+                            <div id="more-news-container" class="hidden space-y-4 mt-4">
+                                ${newsArticles.slice(3).map(article => `
+                                    <li class="border-b pb-4 last:border-b-0 flex justify-between items-center">
+                                        <div>
+                                            <span class="text-sm text-gray-500">${article.date}</span>
+                                            <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
+                                        </div>
+                                        <button onclick="editArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
+                                            編集
+                                        </button>
+                                    </li>
+                                `).join('')}
+                            </div>
+                            <div class="text-center mt-6">
+                                <button id="toggle-news-button" onclick="toggleNewsVisibility();" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                                    もっと見る
+                                </button>
+                            </div>
+                        ` : ''}
                         <div class="text-center mt-6">
                             <button onclick="navigate('news-management');" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
                                 お知らせ管理へ
@@ -526,7 +551,7 @@
                             </div>
                             <div class="bg-sky-50 p-6 rounded-xl shadow-md border border-sky-200">
                                 <h3 class="text-2xl font-bold text-sky-700 mb-4">徹底したプライバシー保護</h3>
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-700 leading-relaxed">
                                     患者様の個人情報やご相談内容は厳重に管理し、プライバシーを最大限に尊重いたします。<br>
                                     オンライン診療だからこそ、ご自宅などのプライベートな空間で、安心してデリケートな問題をご相談いただけます。<br>
                                     セキュリティ対策も万全です。
@@ -837,6 +862,21 @@
                 }
             };
 
+            // 新着情報の表示を切り替える関数
+            window.toggleNewsVisibility = () => {
+                const moreNewsContainer = document.getElementById('more-news-container');
+                const toggleButton = document.getElementById('toggle-news-button');
+                if (moreNewsContainer && toggleButton) {
+                    if (moreNewsContainer.classList.contains('hidden')) {
+                        moreNewsContainer.classList.remove('hidden');
+                        toggleButton.textContent = '閉じる';
+                    } else {
+                        moreNewsContainer.classList.add('hidden');
+                        toggleButton.textContent = 'もっと見る';
+                    }
+                }
+            };
+
             // チャットボットのロジック
             function initializeChatBot() {
                 const chatForm = document.getElementById('chat-form');
@@ -916,8 +956,11 @@
                 if (article) {
                     formTitle.textContent = 'お知らせを編集';
                     articleIdInput.value = article.id;
+                    // HTMLタグを除去してプレーンテキストに変換
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(article.content, 'text/html');
+                    articleContentInput.value = doc.body.textContent.trim();
                     articleTitleInput.value = article.title;
-                    articleContentInput.value = article.content.replace(/<p class="mb-4">|<\/p>|<p>|<\/p>/g, '').trim(); // HTMLタグを除去してプレーンテキストに
                 } else {
                     formTitle.textContent = '新しいお知らせを追加';
                     articleIdInput.value = '';
@@ -967,11 +1010,15 @@
                 navigate('news-management'); // 管理ページを再ロードしてリストを更新
             }
 
-            // お知らせ記事の編集
+            // お知らせ記事の編集 (既存のニュース管理ページに遷移して編集フォームを表示)
             window.editArticle = (id) => {
                 const articleToEdit = newsArticles.find(a => a.id === id);
                 if (articleToEdit) {
-                    showAddArticleForm(articleToEdit);
+                    navigate('news-management'); // まず管理ページに移動
+                    // 管理ページがロードされた後にフォームを表示
+                    setTimeout(() => {
+                        showAddArticleForm(articleToEdit);
+                    }, 100); // 少し遅延させてDOMが準備されるのを待つ
                 }
             };
 
