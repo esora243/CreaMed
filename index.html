@@ -90,7 +90,7 @@
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('about'); return false;">当院について</a></li>
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('faq'); return false;">よくあるご質問</a></li>
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('chat'); return false;">チャットサポート</a></li>
-                    <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="checkPasswordAndNavigate('news-management'); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
+                    <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('relax'); return false;">ちょっと一息</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('legal'); return false;">法的情報</a></li>
                     <li><a href="#" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-5 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105" onclick="showModal('予約'); return false;">今すぐ診療予約</a></li>
                 </ul>
@@ -112,7 +112,7 @@
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('about'); closeMobileMenu(); return false;">当院について</a></li>
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('faq'); closeMobileMenu(); return false;">よくあるご質問</a></li>
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('chat'); closeMobileMenu(); return false;">チャットサポート</a></li>
-                <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="checkPasswordAndNavigate('news-management'); closeMobileMenu(); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
+                <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('relax'); closeMobileMenu(); return false;">ちょっと一息</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('legal'); closeMobileMenu(); return false;">法的情報</a></li>
                 <li><a href="#" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4" onclick="showModal('予約'); closeMobileMenu(); return false;">今すぐ診療予約</a></li>
             </ul>
@@ -125,7 +125,7 @@
     </main>
 
     <!-- フッター -->
-    <footer class="bg-gray-800 text-gray-300 py-8 mt-12 rounded-t-xl shadow-inner">
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12 rounded-t-xl shadow-inner relative">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
                 <h3 class="text-xl font-bold text-white mb-4">クレアクリニック</h3>
@@ -140,7 +140,7 @@
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('about'); return false;">当院について</a></li>
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('faq'); return false;">よくあるご質問</a></li>
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('chat'); return false;">チャットサポート</a></li>
-                    <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="checkPasswordAndNavigate('news-management'); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
+                    <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('relax'); return false;">ちょっと一息</a></li>
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('legal'); return false;">法的情報</a></li>
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="showModal('予約'); return false;">今すぐ診療予約</a></li>
                 </ul>
@@ -159,6 +159,16 @@
         </div>
         <div class="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-6">
             &copy; 2023 クレアクリニック. All rights reserved.
+        </div>
+        <!-- 管理者用リンク (フッター右下) -->
+        <div class="absolute bottom-4 right-4">
+            <a href="#" onclick="checkPasswordAndNavigate('news-management'); return false;" class="text-gray-400 hover:text-sky-400 transition duration-300 text-sm flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.16-1.3-2.1-2.43-2.43-.38-.11-.79-.11-1.17 0-1.13.33-2.05 1.27-2.43 2.43-.11.38-.11.79 0 1.17.38 1.16 1.3 2.1 2.43 2.43.38.11.79.11 1.17 0 1.13-.33 2.05-1.27 2.43-2.43.11-.38.11-.79 0-1.17zM10 5a5 5 0 110 10 5 5 0 010-10zm0 1a4 4 0 100 8 4 4 0 000-8zm-2 4a2 2 0 114 0 2 2 0 01-4 0z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-2-4a2 2 0 114 0 2 2 0 01-4 0z" clip-rule="evenodd" />
+                </svg>
+                <span>管理者用</span>
+            </a>
         </div>
     </footer>
 
@@ -231,131 +241,141 @@
             const modalMessageContent = document.getElementById('modal-message-content'); // コンテンツを挿入する要素
             const modalCloseButton = document.getElementById('modal-close-button');
             const modalConfirmButton = document.getElementById('modal-confirm-button');
-            let confirmCallback = null;
+            let resolveModalPromise = null; // Promiseの解決関数を保持するための変数
 
             // モーダル表示関数
             window.showModal = (title, message = '', type = 'alert', callback = null) => {
-                modalTitle.textContent = title;
-                modalConfirmButton.classList.add('hidden'); // 確認ボタンをデフォルトで非表示
-                modalCloseButton.textContent = '閉じる'; // 閉じるボタンのテキストをリセット
+                return new Promise((resolve) => {
+                    modalTitle.textContent = title;
+                    modalConfirmButton.classList.add('hidden'); // 確認ボタンをデフォルトで非表示
+                    modalCloseButton.textContent = '閉じる'; // 閉じるボタンのテキストをリセット
+                    resolveModalPromise = resolve; // Promiseの解決関数を保存
 
-                if (title === '予約') {
-                    // 予約フォームのHTMLをモーダルに挿入
-                    modalMessageContent.innerHTML = `
-                        <form id="booking-form" class="space-y-4 text-left">
-                            <div>
-                                <label for="booking-date" class="block text-gray-700 text-sm font-bold mb-2">ご希望日:</label>
-                                <input type="date" id="booking-date" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" required>
-                            </div>
-                            <div>
-                                <label for="booking-time" class="block text-gray-700 text-sm font-bold mb-2">ご希望時間:</label>
-                                <input type="time" id="booking-time" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" required>
-                            </div>
-                            <div>
-                                <label for="booking-doctor" class="block text-gray-700 text-sm font-bold mb-2">担当医師:</label>
-                                <select id="booking-doctor" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500">
-                                    <option value="Dr. Sato">佐藤先生</option>
-                                    <option value="Dr. Tanaka">田中先生</option>
-                                    <option value="Dr. Suzuki">鈴木先生</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="booking-reason" class="block text-gray-700 text-sm font-bold mb-2">ご相談内容:</label>
-                                <textarea id="booking-reason" rows="3" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="例：風邪の症状について、心の不調、職場でのストレスなど" required></textarea>
-                            </div>
-                            <button type="submit" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full">
-                                予約を申し込む
-                            </button>
-                            <p id="booking-message" class="mt-4 text-center text-sm font-medium hidden"></p>
-                        </form>
-                    `;
-                    customModal.classList.remove('hidden');
-
-                    // フォーム送信イベントリスナーを追加
-                    setTimeout(() => { // DOMにフォームが追加されるのを待つ
-                        const bookingForm = document.getElementById('booking-form');
-                        const bookingMessage = document.getElementById('booking-message');
-
-                        bookingForm.addEventListener('submit', (e) => {
-                            e.preventDefault();
-                            const date = document.getElementById('booking-date').value;
-                            const time = document.getElementById('booking-time').value;
-                            const doctor = document.getElementById('booking-doctor').value;
-                            const reason = document.getElementById('booking-reason').value;
-
-                            if (!date || !time || !reason) {
-                                bookingMessage.textContent = '全ての項目をご入力ください。';
-                                bookingMessage.classList.remove('hidden');
-                                bookingMessage.classList.remove('text-green-600');
-                                bookingMessage.classList.add('text-red-600');
-                                return;
-                            }
-
-                            // 予約成功をシミュレーション
-                            bookingMessage.textContent = `ご予約ありがとうございます！\nご希望日: ${date}, 時間: ${time}, 担当医師: ${doctor} で承りました。`;
-                            bookingMessage.classList.remove('hidden');
-                            bookingMessage.classList.remove('text-red-600');
-                            bookingMessage.classList.add('text-green-600');
-
-                            // フォームをクリア
-                            bookingForm.reset();
-                        });
-                    }, 0);
-
-                } else {
-                    // 通常のメッセージ表示
-                    modalMessageContent.innerHTML = `<p>${message}</p>`;
-                    if (type === 'confirm') {
-                        modalConfirmButton.classList.remove('hidden');
-                        confirmCallback = callback;
-                        modalConfirmButton.onclick = () => {
-                            customModal.classList.add('hidden');
-                            if (confirmCallback) confirmCallback(true);
-                            confirmCallback = null;
-                        };
-                        modalCloseButton.textContent = 'キャンセル';
-                    } else if (type === 'password') {
-                        // パスワード入力フォーム
+                    if (title === '予約') {
+                        // 予約フォームのHTMLをモーダルに挿入
                         modalMessageContent.innerHTML = `
-                            <input type="password" id="password-input" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4" placeholder="パスワードを入力してください">
-                            <p id="password-error" class="text-red-500 text-sm hidden mb-4">パスワードが間違っています。</p>
+                            <form id="booking-form" class="space-y-4 text-left">
+                                <div>
+                                    <label for="booking-date" class="block text-gray-700 text-sm font-bold mb-2">ご希望日:</label>
+                                    <input type="date" id="booking-date" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" required>
+                                </div>
+                                <div>
+                                    <label for="booking-time" class="block text-gray-700 text-sm font-bold mb-2">ご希望時間:</label>
+                                    <input type="time" id="booking-time" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" required>
+                                </div>
+                                <div>
+                                    <label for="booking-doctor" class="block text-gray-700 text-sm font-bold mb-2">担当医師:</label>
+                                    <select id="booking-doctor" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                        <option value="Dr. Sato">佐藤先生</option>
+                                        <option value="Dr. Tanaka">田中先生</option>
+                                        <option value="Dr. Suzuki">鈴木先生</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="booking-reason" class="block text-gray-700 text-sm font-bold mb-2">ご相談内容:</label>
+                                    <textarea id="booking-reason" rows="3" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="例：風邪の症状について、心の不調、職場でのストレスなど" required></textarea>
+                                </div>
+                                <button type="submit" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full">
+                                    予約を申し込む
+                                </button>
+                                <p id="booking-message" class="mt-4 text-center text-sm font-medium hidden"></p>
+                            </form>
                         `;
-                        modalConfirmButton.classList.remove('hidden');
-                        modalConfirmButton.textContent = '認証';
-                        modalConfirmButton.onclick = () => {
-                            const passwordInput = document.getElementById('password-input');
-                            const passwordError = document.getElementById('password-error');
-                            if (passwordInput.value === ADMIN_PASSWORD) {
-                                customModal.classList.add('hidden');
-                                if (callback) callback(true);
-                            } else {
-                                passwordError.classList.remove('hidden');
-                                passwordInput.value = ''; // 入力ミスでクリア
-                            }
-                        };
-                        modalCloseButton.textContent = 'キャンセル';
-                    }
-                }
+                        customModal.classList.remove('hidden');
 
-                modalCloseButton.onclick = () => {
-                    customModal.classList.add('hidden');
-                    confirmCallback = null;
-                };
-                customModal.classList.remove('hidden');
+                        // フォーム送信イベントリスナーを追加
+                        setTimeout(() => { // DOMにフォームが追加されるのを待つ
+                            const bookingForm = document.getElementById('booking-form');
+                            const bookingMessage = document.getElementById('booking-message');
+
+                            bookingForm.onsubmit = (e) => { // onsubmitを使用
+                                e.preventDefault();
+                                const date = document.getElementById('booking-date').value;
+                                const time = document.getElementById('booking-time').value;
+                                const doctor = document.getElementById('booking-doctor').value;
+                                const reason = document.getElementById('booking-reason').value;
+
+                                if (!date || !time || !reason) {
+                                    bookingMessage.textContent = '全ての項目をご入力ください。';
+                                    bookingMessage.classList.remove('hidden');
+                                    bookingMessage.classList.remove('text-green-600');
+                                    bookingMessage.classList.add('text-red-600');
+                                    return;
+                                }
+
+                                // 予約成功をシミュレーション
+                                bookingMessage.textContent = `ご予約ありがとうございます！\nご希望日: ${date}, 時間: ${time}, 担当医師: ${doctor} で承りました。`;
+                                bookingMessage.classList.remove('hidden');
+                                bookingMessage.classList.remove('text-red-600');
+                                bookingMessage.classList.add('text-green-600');
+
+                                // フォームをクリア
+                                bookingForm.reset();
+                                resolve(true); // 予約モーダルの場合は成功として解決
+                            };
+                        }, 0);
+
+                    } else {
+                        // 通常のメッセージ表示
+                        modalMessageContent.innerHTML = `<p>${message}</p>`;
+                        if (type === 'confirm') {
+                            modalConfirmButton.classList.remove('hidden');
+                            modalConfirmButton.textContent = '確認';
+                            modalConfirmButton.onclick = () => {
+                                customModal.classList.add('hidden');
+                                resolve(true); // 確認モーダルの場合は確認として解決
+                            };
+                            modalCloseButton.textContent = 'キャンセル';
+                            modalCloseButton.onclick = () => {
+                                customModal.classList.add('hidden');
+                                resolve(false); // キャンセルの場合はfalseとして解決
+                            };
+                        } else if (type === 'password') {
+                            // パスワード入力フォーム
+                            modalMessageContent.innerHTML = `
+                                <input type="password" id="password-input" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4" placeholder="パスワードを入力してください">
+                                <p id="password-error" class="text-red-500 text-sm hidden mb-4">パスワードが間違っています。</p>
+                            `;
+                            modalConfirmButton.classList.remove('hidden');
+                            modalConfirmButton.textContent = '認証';
+                            modalConfirmButton.onclick = () => {
+                                const passwordInput = document.getElementById('password-input');
+                                const passwordError = document.getElementById('password-error');
+                                if (passwordInput.value === ADMIN_PASSWORD) {
+                                    customModal.classList.add('hidden');
+                                    resolve(true); // 認証成功
+                                } else {
+                                    passwordError.classList.remove('hidden');
+                                    passwordInput.value = ''; // 入力ミスでクリア
+                                    resolve(false); // 認証失敗 (Promiseは解決するが、結果はfalse)
+                                }
+                            };
+                            modalCloseButton.textContent = 'キャンセル';
+                            modalCloseButton.onclick = () => {
+                                customModal.classList.add('hidden');
+                                resolve(false); // キャンセルの場合はfalseとして解決
+                            };
+                        } else { // type === 'alert'
+                            modalCloseButton.onclick = () => {
+                                customModal.classList.add('hidden');
+                                resolve(true); // アラートの場合は閉じるで解決
+                            };
+                        }
+                    }
+                    customModal.classList.remove('hidden');
+                });
             };
 
             // パスワードチェックを行い、成功したら指定ページに遷移する関数
-            window.checkPasswordAndNavigate = (pageName, param = null) => {
-                window.showModal(
+            window.checkPasswordAndNavigate = async (pageName, param = null) => {
+                const authenticated = await window.showModal(
                     '管理者認証',
                     'この機能にはパスワードが必要です。',
-                    'password',
-                    (authenticated) => {
-                        if (authenticated) {
-                            navigate(pageName, param);
-                        }
-                    }
+                    'password'
                 );
+                if (authenticated) {
+                    navigate(pageName, param);
+                }
             };
 
 
@@ -468,11 +488,6 @@
                                 </button>
                             </div>
                         ` : ''}
-                        <div class="text-center mt-6">
-                            <button onclick="checkPasswordAndNavigate('news-management');" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
-                                お知らせ管理へ
-                            </button>
-                        </div>
                     </section>
 
                     <section class="bg-white p-8 rounded-xl shadow-xl text-center">
@@ -847,7 +862,30 @@
                             </div>
                         </section>
                     `;
-                }
+                },
+                // ちょっと一息ページ
+                'relax': `
+                    <section class="bg-white p-8 rounded-xl shadow-xl mb-12 text-center">
+                        <h2 class="text-4xl font-bold text-sky-700 mb-8">ちょっと一息</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            ここでは、心と体の健康に役立つコラムやリラックスできるコンテンツを提供します。<br>
+                            日々の忙しさから離れて、少しだけ立ち止まってみませんか？
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
+                                <h3 class="text-xl font-bold text-sky-700 mb-3">リラックスのための呼吸法</h3>
+                                <p class="text-gray-600 text-sm">簡単な呼吸法で、ストレスを軽減し、心を落ち着かせましょう。</p>
+                            </div>
+                            <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
+                                <h3 class="text-xl font-bold text-sky-700 mb-3">快眠のためのヒント</h3>
+                                <p class="text-gray-600 text-sm">質の良い睡眠をとるための実践的なアドバイスをご紹介します。</p>
+                            </div>
+                        </div>
+                        <p class="text-md text-gray-600 mt-8">
+                            コンテンツは随時追加予定です。お楽しみに！
+                        </p>
+                    </section>
+                `
             };
 
             const appContent = document.getElementById('app-content');
@@ -1047,48 +1085,42 @@
             }
 
             // お知らせ記事の編集 (パスワードチェック付き)
-            window.checkPasswordAndEditArticle = (id) => {
-                window.showModal(
+            window.checkPasswordAndEditArticle = async (id) => {
+                const authenticated = await window.showModal(
                     '管理者認証',
                     '記事を編集するにはパスワードが必要です。',
-                    'password',
-                    (authenticated) => {
-                        if (authenticated) {
-                            const articleToEdit = newsArticles.find(a => a.id === id);
-                            if (articleToEdit) {
-                                navigate('news-management'); // まず管理ページに移動
-                                setTimeout(() => {
-                                    showAddArticleForm(articleToEdit);
-                                }, 100); // 少し遅延させてDOMが準備されるのを待つ
-                            }
-                        }
-                    }
+                    'password'
                 );
+                if (authenticated) {
+                    const articleToEdit = newsArticles.find(a => a.id === id);
+                    if (articleToEdit) {
+                        navigate('news-management'); // まず管理ページに移動
+                        setTimeout(() => {
+                            showAddArticleForm(articleToEdit);
+                        }, 100); // 少し遅延させてDOMが準備されるのを待つ
+                    }
+                }
             };
 
             // お知らせ記事の削除 (パスワードチェック付き)
-            window.checkPasswordAndDeleteArticle = (id) => {
-                window.showModal(
+            window.checkPasswordAndDeleteArticle = async (id) => {
+                const authenticated = await window.showModal(
                     '管理者認証',
                     '記事を削除するにはパスワードが必要です。',
-                    'password',
-                    (authenticated) => {
-                        if (authenticated) {
-                            window.showModal(
-                                'お知らせ削除の確認',
-                                'このお知らせを本当に削除しますか？この操作は元に戻せません。',
-                                'confirm',
-                                (confirmed) => {
-                                    if (confirmed) {
-                                        newsArticles = newsArticles.filter(a => a.id !== id);
-                                        saveNewsArticles();
-                                        navigate('news-management'); // 管理ページを再ロードしてリストを更新
-                                    }
-                                }
-                            );
-                        }
-                    }
+                    'password'
                 );
+                if (authenticated) {
+                    const confirmed = await window.showModal(
+                        'お知らせ削除の確認',
+                        'このお知らせを本当に削除しますか？この操作は元に戻せません。',
+                        'confirm'
+                    );
+                    if (confirmed) {
+                        newsArticles = newsArticles.filter(a => a.id !== id);
+                        saveNewsArticles();
+                        navigate('news-management'); // 管理ページを再ロードしてリストを更新
+                    }
+                }
             };
 
             // 初期ページのロード
