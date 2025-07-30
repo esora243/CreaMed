@@ -90,7 +90,7 @@
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('about'); return false;">当院について</a></li>
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('faq'); return false;">よくあるご質問</a></li>
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('chat'); return false;">チャットサポート</a></li>
-                    <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('news-management'); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを追加 -->
+                    <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="checkPasswordAndNavigate('news-management'); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('legal'); return false;">法的情報</a></li>
                     <li><a href="#" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-5 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105" onclick="showModal('予約'); return false;">今すぐ診療予約</a></li>
                 </ul>
@@ -112,7 +112,7 @@
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('about'); closeMobileMenu(); return false;">当院について</a></li>
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('faq'); closeMobileMenu(); return false;">よくあるご質問</a></li>
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('chat'); closeMobileMenu(); return false;">チャットサポート</a></li>
-                <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('news-management'); closeMobileMenu(); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを追加 -->
+                <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="checkPasswordAndNavigate('news-management'); closeMobileMenu(); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('legal'); closeMobileMenu(); return false;">法的情報</a></li>
                 <li><a href="#" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4" onclick="showModal('予約'); closeMobileMenu(); return false;">今すぐ診療予約</a></li>
             </ul>
@@ -140,7 +140,7 @@
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('about'); return false;">当院について</a></li>
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('faq'); return false;">よくあるご質問</a></li>
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('chat'); return false;">チャットサポート</a></li>
-                    <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('news-management'); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを追加 -->
+                    <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="checkPasswordAndNavigate('news-management'); return false;">お知らせ管理</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="navigate('legal'); return false;">法的情報</a></li>
                     <li><a href="#" class="hover:text-sky-400 transition duration-300" onclick="showModal('予約'); return false;">今すぐ診療予約</a></li>
                 </ul>
@@ -175,16 +175,14 @@
     <script>
         // グローバル変数としてニュース記事データを定義
         let newsArticles = [];
+        const ADMIN_PASSWORD = "esora243"; // 管理パスワード
 
         // ローカルストレージからニュース記事をロードする関数
         function loadNewsArticles() {
-            console.log('Loading news articles from local storage...');
             const storedArticles = localStorage.getItem('newsArticles');
             if (storedArticles) {
                 newsArticles = JSON.parse(storedArticles);
-                console.log('News articles loaded:', newsArticles);
             } else {
-                console.log('No news articles found in local storage. Generating initial dummy data...');
                 // ローカルストレージにデータがない場合、初期ダミーデータを生成
                 for (let i = 1; i <= 30; i++) {
                     const date = `2023.${(10 - Math.floor((i - 1) / 3)).toString().padStart(2, '0')}.` + ((i % 3) * 10 + 1).toString().padStart(2, '0');
@@ -201,20 +199,16 @@
                     });
                 }
                 saveNewsArticles(); // 初期データをローカルストレージに保存
-                console.log('Initial news articles generated and saved:', newsArticles);
             }
         }
 
         // ローカルストレージにニュース記事を保存する関数
         function saveNewsArticles() {
-            console.log('Saving news articles to local storage...');
             localStorage.setItem('newsArticles', JSON.stringify(newsArticles));
-            console.log('News articles saved.');
         }
 
         // DOMContentLoadedで初期化
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('DOM Content Loaded. Initializing app...');
             loadNewsArticles(); // ページロード時にお知らせ記事をロード
 
             // ハンバーガーメニューのトグル
@@ -222,13 +216,11 @@
             const mobileMenu = document.getElementById('mobile-menu');
 
             hamburgerButton.addEventListener('click', () => {
-                console.log('Hamburger menu clicked.');
                 mobileMenu.classList.toggle('hidden');
                 hamburgerButton.classList.toggle('open');
             });
 
             window.closeMobileMenu = () => {
-                console.log('Closing mobile menu.');
                 mobileMenu.classList.add('hidden');
                 hamburgerButton.classList.remove('open');
             };
@@ -243,7 +235,6 @@
 
             // モーダル表示関数
             window.showModal = (title, message = '', type = 'alert', callback = null) => {
-                console.log(`Showing modal: Title="${title}", Type="${type}"`);
                 modalTitle.textContent = title;
                 modalConfirmButton.classList.add('hidden'); // 確認ボタンをデフォルトで非表示
                 modalCloseButton.textContent = '閉じる'; // 閉じるボタンのテキストをリセット
@@ -323,6 +314,26 @@
                             confirmCallback = null;
                         };
                         modalCloseButton.textContent = 'キャンセル';
+                    } else if (type === 'password') {
+                        // パスワード入力フォーム
+                        modalMessageContent.innerHTML = `
+                            <input type="password" id="password-input" class="shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4" placeholder="パスワードを入力してください">
+                            <p id="password-error" class="text-red-500 text-sm hidden mb-4">パスワードが間違っています。</p>
+                        `;
+                        modalConfirmButton.classList.remove('hidden');
+                        modalConfirmButton.textContent = '認証';
+                        modalConfirmButton.onclick = () => {
+                            const passwordInput = document.getElementById('password-input');
+                            const passwordError = document.getElementById('password-error');
+                            if (passwordInput.value === ADMIN_PASSWORD) {
+                                customModal.classList.add('hidden');
+                                if (callback) callback(true);
+                            } else {
+                                passwordError.classList.remove('hidden');
+                                passwordInput.value = ''; // 入力ミスでクリア
+                            }
+                        };
+                        modalCloseButton.textContent = 'キャンセル';
                     }
                 }
 
@@ -332,6 +343,21 @@
                 };
                 customModal.classList.remove('hidden');
             };
+
+            // パスワードチェックを行い、成功したら指定ページに遷移する関数
+            window.checkPasswordAndNavigate = (pageName, param = null) => {
+                window.showModal(
+                    '管理者認証',
+                    'この機能にはパスワードが必要です。',
+                    'password',
+                    (authenticated) => {
+                        if (authenticated) {
+                            navigate(pageName, param);
+                        }
+                    }
+                );
+            };
+
 
             // ページコンテンツの定義
             const pages = {
@@ -416,7 +442,7 @@
                                         <span class="text-sm text-gray-500">${article.date}</span>
                                         <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
                                     </div>
-                                    <button onclick="editArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
+                                    <button onclick="checkPasswordAndEditArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
                                         編集
                                     </button>
                                 </li>
@@ -430,7 +456,7 @@
                                             <span class="text-sm text-gray-500">${article.date}</span>
                                             <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
                                         </div>
-                                        <button onclick="editArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
+                                        <button onclick="checkPasswordAndEditArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
                                             編集
                                         </button>
                                     </li>
@@ -443,7 +469,7 @@
                             </div>
                         ` : ''}
                         <div class="text-center mt-6">
-                            <button onclick="navigate('news-management');" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                            <button onclick="checkPasswordAndNavigate('news-management');" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
                                 お知らせ管理へ
                             </button>
                         </div>
@@ -734,10 +760,8 @@
                 `,
                 // ニュース詳細ページ
                 'news-detail': (articleId) => {
-                    console.log(`Navigating to news-detail for article ID: ${articleId}`);
                     const article = newsArticles.find(a => a.id === articleId);
                     if (!article) {
-                        console.error(`Article with ID ${articleId} not found.`);
                         return `<div class="text-center text-red-500 text-2xl font-bold p-8">記事が見つかりません。</div>`;
                     }
                     return `
@@ -748,14 +772,14 @@
                                 ${article.content}
                             </div>
                             <div class="mt-8 flex justify-between items-center">
-                                <button onclick="navigate('news-management');" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                                <button onclick="checkPasswordAndNavigate('news-management');" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
                                     お知らせ管理へ戻る
                                 </button>
                                 <div>
-                                    <button onclick="editArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md mr-4">
+                                    <button onclick="checkPasswordAndEditArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md mr-4">
                                         編集
                                     </button>
-                                    <button onclick="deleteArticle('${article.id}');" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                                    <button onclick="checkPasswordAndDeleteArticle('${article.id}');" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
                                         削除
                                     </button>
                                 </div>
@@ -765,7 +789,6 @@
                 },
                 // お知らせ管理ページ
                 'news-management': () => {
-                    console.log('Navigating to news-management page.');
                     // 最新のニュース記事をソートして表示 (新しい順)
                     const sortedArticles = [...newsArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
                     return `
@@ -812,10 +835,10 @@
                                             <button onclick="navigate('news-detail', '${article.id}');" class="bg-sky-500 hover:bg-sky-600 text-white text-sm font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
                                                 詳細
                                             </button>
-                                            <button onclick="editArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
+                                            <button onclick="checkPasswordAndEditArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
                                                 編集
                                             </button>
-                                            <button onclick="deleteArticle('${article.id}');" class="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
+                                            <button onclick="checkPasswordAndDeleteArticle('${article.id}');" class="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
                                                 削除
                                             </button>
                                         </div>
@@ -831,7 +854,6 @@
 
             // ページをロードする関数
             window.navigate = (pageName, param = null) => {
-                console.log(`Navigating to page: ${pageName}, Param: ${param}`);
                 if (pages[pageName]) {
                     if (typeof pages[pageName] === 'function') {
                         // ニュース詳細ページや管理ページのように引数を取る場合
@@ -856,14 +878,12 @@
                         }, 0);
                     }
                 } else {
-                    console.error(`Page "${pageName}" not found.`);
                     appContent.innerHTML = `<div class="text-center text-red-500 text-2xl font-bold p-8">ページが見つかりません。</div>`;
                 }
             };
 
             // アコーディオンのトグル関数
             window.toggleAccordion = (button) => {
-                console.log('Toggling accordion.');
                 const content = button.nextElementSibling;
                 const icon = button.querySelector('svg');
 
@@ -880,7 +900,6 @@
 
             // 新着情報の表示を切り替える関数
             window.toggleNewsVisibility = () => {
-                console.log('Toggling news visibility.');
                 const moreNewsContainer = document.getElementById('more-news-container');
                 const toggleButton = document.getElementById('toggle-news-button');
                 if (moreNewsContainer && toggleButton) {
@@ -896,7 +915,6 @@
 
             // チャットボットのロジック
             function initializeChatBot() {
-                console.log('Initializing chatbot.');
                 const chatForm = document.getElementById('chat-form');
                 const chatInput = document.getElementById('chat-input');
                 const chatBox = document.getElementById('chat-box');
@@ -924,7 +942,6 @@
 
                     if (userMessage === '') {
                         chatErrorMessage.classList.remove('hidden');
-                        console.warn('Chat input is empty.');
                         return;
                     }
 
@@ -944,7 +961,6 @@
                             }
                         }
                         appendMessage(botResponse, 'bot');
-                        console.log('Bot responded:', botResponse);
                     }, 1000); // 1秒後に応答
                 });
 
@@ -960,13 +976,11 @@
                     }
                     chatBox.appendChild(messageElement);
                     chatBox.scrollTop = chatBox.scrollHeight; // スクロールを一番下へ
-                    console.log(`Appended message from ${sender}: "${message}"`);
                 }
             }
 
             // お知らせ記事の追加・編集フォーム表示
             window.showAddArticleForm = (article = null) => {
-                console.log('Showing article form.');
                 const formContainer = document.getElementById('article-form-container');
                 const formTitle = document.getElementById('article-form-title');
                 const articleIdInput = document.getElementById('article-id');
@@ -983,26 +997,22 @@
                     const doc = parser.parseFromString(article.content, 'text/html');
                     articleContentInput.value = doc.body.textContent.trim();
                     articleTitleInput.value = article.title;
-                    console.log('Populated form for editing article:', article.id);
                 } else {
                     formTitle.textContent = '新しいお知らせを追加';
                     articleIdInput.value = '';
                     articleTitleInput.value = '';
                     articleContentInput.value = '';
-                    console.log('Cleared form for new article.');
                 }
             };
 
             // お知らせ記事のフォーム非表示
             window.hideArticleForm = () => {
-                console.log('Hiding article form.');
                 document.getElementById('article-form-container').classList.add('hidden');
             };
 
             // お知らせ記事の保存処理
             function handleArticleFormSubmit(e) {
                 e.preventDefault();
-                console.log('Handling article form submission.');
                 const articleId = document.getElementById('article-id').value;
                 const title = document.getElementById('article-title').value;
                 const content = document.getElementById('article-content').value;
@@ -1019,9 +1029,6 @@
                         newsArticles[index].title = title;
                         newsArticles[index].content = formattedContent;
                         newsArticles[index].date = date; // 編集時も日付を更新
-                        console.log('Updated article:', newsArticles[index]);
-                    } else {
-                        console.error('Article not found for editing:', articleId);
                     }
                 } else {
                     // 新規追加の場合
@@ -1032,7 +1039,6 @@
                         content: formattedContent
                     };
                     newsArticles.unshift(newArticle); // リストの先頭に追加
-                    console.log('Added new article:', newArticle);
                 }
 
                 saveNewsArticles();
@@ -1040,36 +1046,46 @@
                 navigate('news-management'); // 管理ページを再ロードしてリストを更新
             }
 
-            // お知らせ記事の編集 (既存のニュース管理ページに遷移して編集フォームを表示)
-            window.editArticle = (id) => {
-                console.log(`Attempting to edit article with ID: ${id}`);
-                const articleToEdit = newsArticles.find(a => a.id === id);
-                if (articleToEdit) {
-                    navigate('news-management'); // まず管理ページに移動
-                    // 管理ページがロードされた後にフォームを表示
-                    setTimeout(() => {
-                        showAddArticleForm(articleToEdit);
-                    }, 100); // 少し遅延させてDOMが準備されるのを待つ
-                } else {
-                    console.error(`Article with ID ${id} not found for editing.`);
-                }
+            // お知らせ記事の編集 (パスワードチェック付き)
+            window.checkPasswordAndEditArticle = (id) => {
+                window.showModal(
+                    '管理者認証',
+                    '記事を編集するにはパスワードが必要です。',
+                    'password',
+                    (authenticated) => {
+                        if (authenticated) {
+                            const articleToEdit = newsArticles.find(a => a.id === id);
+                            if (articleToEdit) {
+                                navigate('news-management'); // まず管理ページに移動
+                                setTimeout(() => {
+                                    showAddArticleForm(articleToEdit);
+                                }, 100); // 少し遅延させてDOMが準備されるのを待つ
+                            }
+                        }
+                    }
+                );
             };
 
-            // お知らせ記事の削除
-            window.deleteArticle = (id) => {
-                console.log(`Attempting to delete article with ID: ${id}`);
+            // お知らせ記事の削除 (パスワードチェック付き)
+            window.checkPasswordAndDeleteArticle = (id) => {
                 window.showModal(
-                    'お知らせ削除の確認',
-                    'このお知らせを本当に削除しますか？この操作は元に戻せません。',
-                    'confirm',
-                    (confirmed) => {
-                        if (confirmed) {
-                            newsArticles = newsArticles.filter(a => a.id !== id);
-                            saveNewsArticles();
-                            navigate('news-management'); // 管理ページを再ロードしてリストを更新
-                            console.log(`Article with ID ${id} deleted.`);
-                        } else {
-                            console.log(`Deletion of article with ID ${id} cancelled.`);
+                    '管理者認証',
+                    '記事を削除するにはパスワードが必要です。',
+                    'password',
+                    (authenticated) => {
+                        if (authenticated) {
+                            window.showModal(
+                                'お知らせ削除の確認',
+                                'このお知らせを本当に削除しますか？この操作は元に戻せません。',
+                                'confirm',
+                                (confirmed) => {
+                                    if (confirmed) {
+                                        newsArticles = newsArticles.filter(a => a.id !== id);
+                                        saveNewsArticles();
+                                        navigate('news-management'); // 管理ページを再ロードしてリストを更新
+                                    }
+                                }
+                            );
                         }
                     }
                 );
