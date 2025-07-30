@@ -178,10 +178,13 @@
 
         // ローカルストレージからニュース記事をロードする関数
         function loadNewsArticles() {
+            console.log('Loading news articles from local storage...');
             const storedArticles = localStorage.getItem('newsArticles');
             if (storedArticles) {
                 newsArticles = JSON.parse(storedArticles);
+                console.log('News articles loaded:', newsArticles);
             } else {
+                console.log('No news articles found in local storage. Generating initial dummy data...');
                 // ローカルストレージにデータがない場合、初期ダミーデータを生成
                 for (let i = 1; i <= 30; i++) {
                     const date = `2023.${(10 - Math.floor((i - 1) / 3)).toString().padStart(2, '0')}.` + ((i % 3) * 10 + 1).toString().padStart(2, '0');
@@ -198,16 +201,20 @@
                     });
                 }
                 saveNewsArticles(); // 初期データをローカルストレージに保存
+                console.log('Initial news articles generated and saved:', newsArticles);
             }
         }
 
         // ローカルストレージにニュース記事を保存する関数
         function saveNewsArticles() {
+            console.log('Saving news articles to local storage...');
             localStorage.setItem('newsArticles', JSON.stringify(newsArticles));
+            console.log('News articles saved.');
         }
 
         // DOMContentLoadedで初期化
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM Content Loaded. Initializing app...');
             loadNewsArticles(); // ページロード時にお知らせ記事をロード
 
             // ハンバーガーメニューのトグル
@@ -215,11 +222,13 @@
             const mobileMenu = document.getElementById('mobile-menu');
 
             hamburgerButton.addEventListener('click', () => {
+                console.log('Hamburger menu clicked.');
                 mobileMenu.classList.toggle('hidden');
                 hamburgerButton.classList.toggle('open');
             });
 
             window.closeMobileMenu = () => {
+                console.log('Closing mobile menu.');
                 mobileMenu.classList.add('hidden');
                 hamburgerButton.classList.remove('open');
             };
@@ -234,6 +243,7 @@
 
             // モーダル表示関数
             window.showModal = (title, message = '', type = 'alert', callback = null) => {
+                console.log(`Showing modal: Title="${title}", Type="${type}"`);
                 modalTitle.textContent = title;
                 modalConfirmButton.classList.add('hidden'); // 確認ボタンをデフォルトで非表示
                 modalCloseButton.textContent = '閉じる'; // 閉じるボタンのテキストをリセット
@@ -450,7 +460,7 @@
                         <h2 class="text-4xl font-bold text-sky-700 mb-8 text-center">どんな診療ができるの？</h2>
                         <p class="text-lg text-gray-700 mb-10 text-center max-w-3xl mx-auto">
                             クレアクリニックでは、患者様の多様なニーズにお応えするため、専門性の高いオンライン診療をご提供しています。<br>
-                            ご自宅や任意の場所から、安心して質の高い医療サービスをご利用いただけます。特に、**アフターピル**や**緊急避妊薬**、**メンタルカウンセリング**、**産業医**による専門的な相談を通じて、忙しい方や**中小企業**の皆様の健康をサポートします。
+                            ご自宅や任意の場所から、安心して質の高い医療サービスをご利用いただけます。特に、<strong>アフターピル</strong>や<strong>緊急避妊薬</strong>、<strong>メンタルカウンセリング</strong>、<strong>産業医</strong>による専門的な相談を通じて、忙しい方や<strong>中小企業</strong>の皆様の健康をサポートします。
                         </p>
 
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -459,8 +469,8 @@
                                 <img src="アフターピル説明.jpg" alt="アフターピルのパッケージと医師の手元" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">アフターピルの処方</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
-                                    予期せぬ妊娠の可能性に直面した際、**緊急避妊薬**（アフターピル）を迅速かつプライバシーに配慮して処方いたします。
-                                    **オンライン診療**なので、来院の負担なく、必要な時にすぐにご相談いただけます。
+                                    予期せぬ妊娠の可能性に直面した際、<strong>緊急避妊薬</strong>（アフターピル）を迅速かつプライバシーに配慮して処方いたします。
+                                    <strong>オンライン診療</strong>なので、来院の負担なく、必要な時にすぐにご相談いただけます。
                                 </p>
                                 <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
                                     <li>具体的な診療内容: 問診、処方薬の説明、服用方法の指導</li>
@@ -479,7 +489,7 @@
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">メンタルカウンセリング</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
                                     ストレス、不安、うつ病、人間関係の悩みなど、心の健康に関する幅広いご相談に対応します。
-                                    経験豊富な**カウンセリング**の専門家が、あなたの心に寄り添い、解決への道を共に探します。
+                                    経験豊富な<strong>カウンセリング</strong>の専門家が、あなたの心に寄り添い、解決への道を共に探します。
                                 </p>
                                 <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
                                     <li>具体的な診療内容: 専門カウンセラーによる個別カウンセリング</li>
@@ -498,7 +508,7 @@
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">産業医による相談</h3>
                                 <p class="text-gray-700 mb-4 leading-relaxed">
                                     職場のストレス、過重労働、ハラスメント、休職・復職に関する問題など、
-                                    働く上での健康問題について、専門の**産業医**が適切なアドバイスとサポートを提供します。特に**中小企業**の従業員様からのご相談も歓迎いたします。
+                                    働く上での健康問題について、専門の<strong>産業医</strong>が適切なアドバイスとサポートを提供します。特に<strong>中小企業</strong>の従業員様からのご相談も歓迎いたします。
                                 </p>
                                 <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
                                     <li>具体的な診療内容: 産業医による健康相談、職場環境改善のアドバイス</li>
@@ -551,7 +561,7 @@
                             </div>
                             <div class="bg-sky-50 p-6 rounded-xl shadow-md border border-sky-200">
                                 <h3 class="text-2xl font-bold text-sky-700 mb-4">徹底したプライバシー保護</h3>
-                                <p class="text-700 leading-relaxed">
+                                <p class="text-gray-700 leading-relaxed">
                                     患者様の個人情報やご相談内容は厳重に管理し、プライバシーを最大限に尊重いたします。<br>
                                     オンライン診療だからこそ、ご自宅などのプライベートな空間で、安心してデリケートな問題をご相談いただけます。<br>
                                     セキュリティ対策も万全です。
@@ -724,8 +734,10 @@
                 `,
                 // ニュース詳細ページ
                 'news-detail': (articleId) => {
+                    console.log(`Navigating to news-detail for article ID: ${articleId}`);
                     const article = newsArticles.find(a => a.id === articleId);
                     if (!article) {
+                        console.error(`Article with ID ${articleId} not found.`);
                         return `<div class="text-center text-red-500 text-2xl font-bold p-8">記事が見つかりません。</div>`;
                     }
                     return `
@@ -753,6 +765,7 @@
                 },
                 // お知らせ管理ページ
                 'news-management': () => {
+                    console.log('Navigating to news-management page.');
                     // 最新のニュース記事をソートして表示 (新しい順)
                     const sortedArticles = [...newsArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
                     return `
@@ -818,6 +831,7 @@
 
             // ページをロードする関数
             window.navigate = (pageName, param = null) => {
+                console.log(`Navigating to page: ${pageName}, Param: ${param}`);
                 if (pages[pageName]) {
                     if (typeof pages[pageName] === 'function') {
                         // ニュース詳細ページや管理ページのように引数を取る場合
@@ -842,12 +856,14 @@
                         }, 0);
                     }
                 } else {
+                    console.error(`Page "${pageName}" not found.`);
                     appContent.innerHTML = `<div class="text-center text-red-500 text-2xl font-bold p-8">ページが見つかりません。</div>`;
                 }
             };
 
             // アコーディオンのトグル関数
             window.toggleAccordion = (button) => {
+                console.log('Toggling accordion.');
                 const content = button.nextElementSibling;
                 const icon = button.querySelector('svg');
 
@@ -864,6 +880,7 @@
 
             // 新着情報の表示を切り替える関数
             window.toggleNewsVisibility = () => {
+                console.log('Toggling news visibility.');
                 const moreNewsContainer = document.getElementById('more-news-container');
                 const toggleButton = document.getElementById('toggle-news-button');
                 if (moreNewsContainer && toggleButton) {
@@ -879,6 +896,7 @@
 
             // チャットボットのロジック
             function initializeChatBot() {
+                console.log('Initializing chatbot.');
                 const chatForm = document.getElementById('chat-form');
                 const chatInput = document.getElementById('chat-input');
                 const chatBox = document.getElementById('chat-box');
@@ -906,6 +924,7 @@
 
                     if (userMessage === '') {
                         chatErrorMessage.classList.remove('hidden');
+                        console.warn('Chat input is empty.');
                         return;
                     }
 
@@ -925,6 +944,7 @@
                             }
                         }
                         appendMessage(botResponse, 'bot');
+                        console.log('Bot responded:', botResponse);
                     }, 1000); // 1秒後に応答
                 });
 
@@ -940,11 +960,13 @@
                     }
                     chatBox.appendChild(messageElement);
                     chatBox.scrollTop = chatBox.scrollHeight; // スクロールを一番下へ
+                    console.log(`Appended message from ${sender}: "${message}"`);
                 }
             }
 
             // お知らせ記事の追加・編集フォーム表示
             window.showAddArticleForm = (article = null) => {
+                console.log('Showing article form.');
                 const formContainer = document.getElementById('article-form-container');
                 const formTitle = document.getElementById('article-form-title');
                 const articleIdInput = document.getElementById('article-id');
@@ -961,22 +983,26 @@
                     const doc = parser.parseFromString(article.content, 'text/html');
                     articleContentInput.value = doc.body.textContent.trim();
                     articleTitleInput.value = article.title;
+                    console.log('Populated form for editing article:', article.id);
                 } else {
                     formTitle.textContent = '新しいお知らせを追加';
                     articleIdInput.value = '';
                     articleTitleInput.value = '';
                     articleContentInput.value = '';
+                    console.log('Cleared form for new article.');
                 }
             };
 
             // お知らせ記事のフォーム非表示
             window.hideArticleForm = () => {
+                console.log('Hiding article form.');
                 document.getElementById('article-form-container').classList.add('hidden');
             };
 
             // お知らせ記事の保存処理
             function handleArticleFormSubmit(e) {
                 e.preventDefault();
+                console.log('Handling article form submission.');
                 const articleId = document.getElementById('article-id').value;
                 const title = document.getElementById('article-title').value;
                 const content = document.getElementById('article-content').value;
@@ -993,6 +1019,9 @@
                         newsArticles[index].title = title;
                         newsArticles[index].content = formattedContent;
                         newsArticles[index].date = date; // 編集時も日付を更新
+                        console.log('Updated article:', newsArticles[index]);
+                    } else {
+                        console.error('Article not found for editing:', articleId);
                     }
                 } else {
                     // 新規追加の場合
@@ -1003,6 +1032,7 @@
                         content: formattedContent
                     };
                     newsArticles.unshift(newArticle); // リストの先頭に追加
+                    console.log('Added new article:', newArticle);
                 }
 
                 saveNewsArticles();
@@ -1012,6 +1042,7 @@
 
             // お知らせ記事の編集 (既存のニュース管理ページに遷移して編集フォームを表示)
             window.editArticle = (id) => {
+                console.log(`Attempting to edit article with ID: ${id}`);
                 const articleToEdit = newsArticles.find(a => a.id === id);
                 if (articleToEdit) {
                     navigate('news-management'); // まず管理ページに移動
@@ -1019,11 +1050,14 @@
                     setTimeout(() => {
                         showAddArticleForm(articleToEdit);
                     }, 100); // 少し遅延させてDOMが準備されるのを待つ
+                } else {
+                    console.error(`Article with ID ${id} not found for editing.`);
                 }
             };
 
             // お知らせ記事の削除
             window.deleteArticle = (id) => {
+                console.log(`Attempting to delete article with ID: ${id}`);
                 window.showModal(
                     'お知らせ削除の確認',
                     'このお知らせを本当に削除しますか？この操作は元に戻せません。',
@@ -1033,6 +1067,9 @@
                             newsArticles = newsArticles.filter(a => a.id !== id);
                             saveNewsArticles();
                             navigate('news-management'); // 管理ページを再ロードしてリストを更新
+                            console.log(`Article with ID ${id} deleted.`);
+                        } else {
+                            console.log(`Deletion of article with ID ${id} cancelled.`);
                         }
                     }
                 );
