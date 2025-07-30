@@ -477,8 +477,8 @@
                                             <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
                                         </div>
                                         <button onclick="checkPasswordAndEditArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
-                                            編集
-                                        </button>
+                                        編集
+                                    </button>
                                     </li>
                                 `).join('')}
                             </div>
@@ -864,28 +864,32 @@
                     `;
                 },
                 // ちょっと一息ページ
-                'relax': `
-                    <section class="bg-white p-8 rounded-xl shadow-xl mb-12 text-center">
-                        <h2 class="text-4xl font-bold text-sky-700 mb-8">ちょっと一息</h2>
-                        <p class="text-lg text-gray-700 mb-6">
-                            ここでは、心と体の健康に役立つコラムやリラックスできるコンテンツを提供します。<br>
-                            日々の忙しさから離れて、少しだけ立ち止まってみませんか？
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                            <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
-                                <h3 class="text-xl font-bold text-sky-700 mb-3">リラックスのための呼吸法</h3>
-                                <p class="text-gray-600 text-sm">簡単な呼吸法で、ストレスを軽減し、心を落ち着かせましょう。</p>
+                'relax': () => {
+                    // 最新のニュース記事をソートして表示 (新しい順)
+                    const sortedArticles = [...newsArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    return `
+                        <section class="bg-white p-8 rounded-xl shadow-xl mb-12 text-center">
+                            <h2 class="text-4xl font-bold text-sky-700 mb-8">ちょっと一息</h2>
+                            <p class="text-lg text-gray-700 mb-6">
+                                ここでは、心と体の健康に役立つコラムやリラックスできるコンテンツを提供します。<br>
+                                日々の忙しさから離れて、少しだけ立ち止まってみませんか？
+                            </p>
+                            <div class="space-y-4 text-left">
+                                ${sortedArticles.length > 0 ? sortedArticles.map(article => `
+                                    <div class="bg-sky-50 p-4 rounded-lg shadow-sm border border-sky-200 flex flex-col md:flex-row md:items-center md:justify-between">
+                                        <div>
+                                            <span class="text-sm text-gray-500">${article.date}</span>
+                                            <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
+                                        </div>
+                                    </div>
+                                `).join('') : `<p class="text-center text-gray-600">現在、コラムはありません。</p>`}
                             </div>
-                            <div class="bg-sky-50 p-6 rounded-lg shadow-md border border-sky-200">
-                                <h3 class="text-xl font-bold text-sky-700 mb-3">快眠のためのヒント</h3>
-                                <p class="text-gray-600 text-sm">質の良い睡眠をとるための実践的なアドバイスをご紹介します。</p>
-                            </div>
-                        </div>
-                        <p class="text-md text-gray-600 mt-8">
-                            コンテンツは随時追加予定です。お楽しみに！
-                        </p>
-                    </section>
-                `
+                            <p class="text-md text-gray-600 mt-8">
+                                コンテンツは随時追加予定です。お楽しみに！
+                            </p>
+                        </section>
+                    `;
+                }
             };
 
             const appContent = document.getElementById('app-content');
