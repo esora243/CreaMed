@@ -469,21 +469,8 @@
                             `).join('')}
                         </ul>
                         ${newsArticles.length > 3 ? `
-                            <div id="more-news-container" class="hidden space-y-4 mt-4">
-                                ${newsArticles.slice(3).map(article => `
-                                    <li class="border-b pb-4 last:border-b-0 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-sm text-gray-500">${article.date}</span>
-                                            <a href="#" class="block text-lg font-medium text-sky-600 hover:text-sky-800 transition duration-300" onclick="navigate('news-detail', '${article.id}'); return false;">${article.title}</a>
-                                        </div>
-                                        <button onclick="checkPasswordAndEditArticle('${article.id}');" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full transition duration-300 ease-in-out">
-                                        編集
-                                    </button>
-                                    </li>
-                                `).join('')}
-                            </div>
                             <div class="text-center mt-6">
-                                <button id="toggle-news-button" onclick="toggleNewsVisibility();" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
+                                <button onclick="navigate('relax');" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
                                     もっと見る
                                 </button>
                             </div>
@@ -940,7 +927,7 @@
                 }
             };
 
-            // 新着情報の表示を切り替える関数
+            // 新着情報の表示を切り替える関数 (ホーム画面の「もっと見る」ボタンは直接relaxページへ遷移するため、この関数は不要になりましたが、コードは残しておきます)
             window.toggleNewsVisibility = () => {
                 const moreNewsContainer = document.getElementById('more-news-container');
                 const toggleButton = document.getElementById('toggle-news-button');
