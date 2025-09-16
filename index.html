@@ -9,15 +9,9 @@
     <meta property="og:title" content="クレアクリニック オンラインHP：忙しいあなたのための安心オンライン診療">
     <meta property="og:description" content="オンライン診療でアフターピル、緊急避妊薬、カウンセリング、産業医相談を提供。忙しいあなたのための質の高い医療を自宅から手軽に。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://esora243.github.io/CreaMed/"> <!-- 実際のURLに置き換えてください -->
-    <link rel="canonical" href="https://esora243.github.io/CreaMed/"> <!-- 実際のURLに置き換えてください -->
+    <meta property="og:url" content="https://esora243.github.io/CreaMed/"> <link rel="canonical" href="https://esora243.github.io/CreaMed/"> <meta name="google-site-verification" content="YOUR_GOOGLE_SITE_VERIFICATION_CODE" />
 
-    <!-- Google Site Verification Tag (Google Search Consoleで取得した確認コードをYOUR_GOOGLE_SITE_VERIFICATION_CODEに置き換えてください) -->
-    <meta name="google-site-verification" content="YOUR_GOOGLE_SITE_VERIFICATION_CODE" />
-
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -63,26 +57,19 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script> <!-- YOUR_GA_TRACKING_IDを置き換えてください -->
-    <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script> <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'YOUR_GA_TRACKING_ID');
     </script>
 
-    <!-- ヘッダー -->
     <header class="bg-sky-700 text-white shadow-lg sticky top-0 z-50 rounded-b-xl">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- ヘッダーロゴ -->
             <a href="#" class="flex items-center" onclick="navigate('home'); return false;">
-                <!-- ユーザーが指定した画像名に合わせて仮のロゴ画像を使用 -->
-                <!-- 実際のロゴ画像に置き換えてください。例: <img src="path/to/your/logo.png" alt="クレアクリニック ロゴ" class="h-10"> -->
                 <img src="ChatGPT Image 2025年6月29日 14_19_33.png" alt="クレアクリニック ロゴ" class="h-10 rounded-md">
             </a>
             
-            <!-- ナビゲーション (デスクトップ) -->
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('home'); return false;">ホーム</a></li>
@@ -90,13 +77,11 @@
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('about'); return false;">当院について</a></li>
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('faq'); return false;">よくあるご質問</a></li>
                     <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('chat'); return false;">チャットサポート</a></li>
-                    <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('relax'); return false;">ちょっと一息</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
-                    <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('legal'); return false;">法的情報</a></li>
+                    <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('relax'); return false;">ちょっと一息</a></li> <li><a href="#" class="hover:text-sky-200 transition duration-300 ease-in-out py-2 px-3 rounded-full" onclick="navigate('legal'); return false;">法的情報</a></li>
                     <li><a href="#" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-5 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105" onclick="showModal('予約'); return false;">今すぐ診療予約</a></li>
                 </ul>
             </nav>
 
-            <!-- ハンバーガーメニュー (モバイル) -->
             <button id="hamburger-menu" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-300">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -104,7 +89,6 @@
             </button>
         </div>
 
-        <!-- モバイルナビゲーションメニュー -->
         <nav id="mobile-menu" class="hidden md:hidden bg-sky-600 py-4 rounded-b-xl">
             <ul class="flex flex-col items-center space-y-4">
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('home'); closeMobileMenu(); return false;">ホーム</a></li>
@@ -112,19 +96,15 @@
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('about'); closeMobileMenu(); return false;">当院について</a></li>
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('faq'); closeMobileMenu(); return false;">よくあるご質問</a></li>
                 <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('chat'); closeMobileMenu(); return false;">チャットサポート</a></li>
-                <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('relax'); closeMobileMenu(); return false;">ちょっと一息</a></li> <!-- お知らせ管理ページへのリンクを変更 -->
-                <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('legal'); closeMobileMenu(); return false;">法的情報</a></li>
+                <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('relax'); closeMobileMenu(); return false;">ちょっと一息</a></li> <li><a href="#" class="block text-white hover:text-sky-200 py-2 px-4 rounded-md transition duration-300 ease-in-out" onclick="navigate('legal'); closeMobileMenu(); return false;">法的情報</a></li>
                 <li><a href="#" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4" onclick="showModal('予約'); closeMobileMenu(); return false;">今すぐ診療予約</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- メインコンテンツ -->
     <main id="app-content" class="container mx-auto px-4 py-8 min-h-[calc(100vh-200px)]">
-        <!-- コンテンツはJavaScriptによってここに動的にロードされます -->
-    </main>
+        </main>
 
-    <!-- フッター -->
     <footer class="bg-gray-800 text-gray-300 py-8 mt-12 rounded-t-xl shadow-inner relative">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -152,7 +132,6 @@
                 <p class="text-sm">電話: 080-5286-6815</p>
             </div>
         </div>
-        <!-- バナー広告の追加 -->
         <div class="text-center mt-8">
             <a href="https://px.a8.net/svt/ejp?a8mat=459ZAU+6XGOSI+2LJS+62ENM" rel="nofollow" class="inline-block">来院お待ちしております</a>
             <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=459ZAU+6XGOSI+2LJS+62ENM" alt="">
@@ -160,7 +139,6 @@
         <div class="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-6">
             &copy; 2023 クレアクリニック. All rights reserved.
         </div>
-        <!-- 管理者用リンク (フッター右下) -->
         <div class="absolute bottom-4 right-4">
             <a href="#" onclick="checkPasswordAndNavigate('news-management'); return false;" class="text-gray-400 hover:text-sky-400 transition duration-300 text-sm flex items-center space-x-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -172,7 +150,6 @@
         </div>
     </footer>
 
-    <!-- カスタムモーダル (alert/confirmの代わり) -->
     <div id="custom-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden">
         <div class="bg-white p-8 rounded-lg shadow-xl max-w-sm w-full text-center relative">
             <h3 id="modal-title" class="text-2xl font-bold text-sky-700 mb-4"></h3>
@@ -181,45 +158,13 @@
             <button id="modal-confirm-button" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg ml-4 hidden">確認</button>
         </div>
     </div>
+    
+    <script src="article.js"></script>
 
     <script>
-        // グローバル変数としてニュース記事データを定義
-        let newsArticles = [];
-        const ADMIN_PASSWORD = "esora243"; // 管理パスワード
-
-        // ローカルストレージからニュース記事をロードする関数
-        function loadNewsArticles() {
-            const storedArticles = localStorage.getItem('newsArticles');
-            if (storedArticles) {
-                newsArticles = JSON.parse(storedArticles);
-            } else {
-                // ローカルストレージにデータがない場合、初期ダミーデータを生成
-                for (let i = 1; i <= 30; i++) {
-                    const date = `2023.${(10 - Math.floor((i - 1) / 3)).toString().padStart(2, '0')}.` + ((i % 3) * 10 + 1).toString().padStart(2, '0');
-                    newsArticles.push({
-                        id: `news-${Date.now()}-${i}`, // ユニークなIDを生成
-                        date: date,
-                        title: `オンライン診療に関するお知らせ #${i}`,
-                        content: `
-                            <p class="mb-4">これはオンライン診療に関する重要なお知らせ #${i} の詳細です。当クリニックでは、患者様へのより良いサービス提供のため、常に最新の情報をお届けしています。</p>
-                            <p class="mb-4">この度、${date}より、新しいオンライン診療システムを導入いたしました。これにより、これまで以上にスムーズな予約と診療が可能となります。詳細については、システム内のヘルプをご確認ください。</p>
-                            <p class="mb-4">また、${date}に実施されたアンケートでは、患者様の95%がオンライン診療の利便性に満足されていることが分かりました。今後も皆様のご意見を参考に、サービスの改善に努めてまいります。</p>
-                            <p>ご不明な点がございましたら、お気軽にチャットサポートまたはお問い合わせ窓口までご連絡ください。</p>
-                        `
-                    });
-                }
-                saveNewsArticles(); // 初期データをローカルストレージに保存
-            }
-        }
-
-        // ローカルストレージにニュース記事を保存する関数
-        function saveNewsArticles() {
-            localStorage.setItem('newsArticles', JSON.stringify(newsArticles));
-        }
-
         // DOMContentLoadedで初期化
         document.addEventListener('DOMContentLoaded', () => {
-            loadNewsArticles(); // ページロード時にお知らせ記事をロード
+            loadNewsArticles(); // ページロード時にお知らせ記事をロード (article.jsで定義)
 
             // ハンバーガーメニューのトグル
             const hamburgerButton = document.getElementById('hamburger-menu');
@@ -347,7 +292,7 @@
                                 } else {
                                     passwordError.classList.remove('hidden');
                                     passwordInput.value = ''; // 入力ミスでクリア
-                                    resolve(false); // 認証失敗 (Promiseは解決するが、結果はfalse)
+                                    // resolve(false); ここでは解決せず、ユーザーが再試行またはキャンセルできるようにする
                                 }
                             };
                             modalCloseButton.textContent = 'キャンセル';
@@ -377,7 +322,6 @@
                     navigate(pageName, param);
                 }
             };
-
 
             // ページコンテンツの定義
             const pages = {
@@ -492,7 +436,6 @@
                         </p>
 
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                            <!-- サービス1: アフターピルの処方 -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200">
                                 <img src="アフターピル説明.jpg" alt="アフターピルのパッケージと医師の手元" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">アフターピルの処方</h3>
@@ -511,7 +454,6 @@
                                 </a>
                             </div>
 
-                            <!-- サービス2: メンタルカウンセリング -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200">
                                 <img src="concept.jpg" alt="オンラインでカウンセリングを受ける人のイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">メンタルカウンセリング</h3>
@@ -530,7 +472,6 @@
                                 </a>
                             </div>
 
-                            <!-- サービス3: 産業医による相談 -->
                             <div class="bg-sky-50 p-8 rounded-xl shadow-md border border-sky-200 lg:col-span-2">
                                 <img src="feature_1.jpg" alt="オンラインで産業医が相談に乗るイメージ" class="w-full h-40 object-cover rounded-lg mb-4">
                                 <h3 class="text-3xl font-bold text-sky-800 mb-4">産業医による相談</h3>
@@ -683,7 +624,6 @@
                         <h2 class="text-4xl font-bold text-sky-700 mb-8 text-center">よくあるご質問 (FAQ)</h2>
 
                         <div class="space-y-6 max-w-3xl mx-auto">
-                            <!-- FAQ Item 1 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. オンライン診療の予約方法を教えてください。</span>
@@ -694,7 +634,6 @@
                                 </div>
                             </div>
 
-                            <!-- FAQ Item 2 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. 診療時間は何時までですか？</span>
@@ -705,7 +644,6 @@
                                 </div>
                             </div>
 
-                            <!-- FAQ Item 3 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. お薬はどのように受け取れますか？</span>
@@ -716,7 +654,6 @@
                                 </div>
                             </div>
 
-                            <!-- FAQ Item 4 -->
                             <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
                                 <button class="w-full text-left p-5 bg-sky-50 hover:bg-sky-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(this)">
                                     <span class="text-lg font-semibold text-sky-700">Q. プライバシーは保護されますか？</span>
@@ -737,7 +674,6 @@
                         </p>
 
                         <div id="chat-box" class="h-96 overflow-y-auto border border-gray-300 p-4 rounded-lg mb-4 bg-gray-50 flex flex-col space-y-4">
-                            <!-- チャットメッセージがここに挿入されます -->
                             <div class="chat-message bot p-3 max-w-[80%] text-left shadow-sm">
                                 <p class="text-gray-800">こんにちは！クレアクリニックのチャットサポートです。何かご質問はありますか？</p>
                             </div>
@@ -927,21 +863,6 @@
                 }
             };
 
-            // 新着情報の表示を切り替える関数 (ホーム画面の「もっと見る」ボタンは直接relaxページへ遷移するため、この関数は不要になりましたが、コードは残しておきます)
-            window.toggleNewsVisibility = () => {
-                const moreNewsContainer = document.getElementById('more-news-container');
-                const toggleButton = document.getElementById('toggle-news-button');
-                if (moreNewsContainer && toggleButton) {
-                    if (moreNewsContainer.classList.contains('hidden')) {
-                        moreNewsContainer.classList.remove('hidden');
-                        toggleButton.textContent = '閉じる';
-                    } else {
-                        moreNewsContainer.classList.add('hidden');
-                        toggleButton.textContent = 'もっと見る';
-                    }
-                }
-            };
-
             // チャットボットのロジック
             function initializeChatBot() {
                 const chatForm = document.getElementById('chat-form');
@@ -1007,112 +928,6 @@
                     chatBox.scrollTop = chatBox.scrollHeight; // スクロールを一番下へ
                 }
             }
-
-            // お知らせ記事の追加・編集フォーム表示
-            window.showAddArticleForm = (article = null) => {
-                const formContainer = document.getElementById('article-form-container');
-                const formTitle = document.getElementById('article-form-title');
-                const articleIdInput = document.getElementById('article-id');
-                const articleTitleInput = document.getElementById('article-title');
-                const articleContentInput = document.getElementById('article-content');
-
-                formContainer.classList.remove('hidden');
-                
-                if (article) {
-                    formTitle.textContent = 'お知らせを編集';
-                    articleIdInput.value = article.id;
-                    // HTMLタグを除去してプレーンテキストに変換
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(article.content, 'text/html');
-                    articleContentInput.value = doc.body.textContent.trim();
-                    articleTitleInput.value = article.title;
-                } else {
-                    formTitle.textContent = '新しいお知らせを追加';
-                    articleIdInput.value = '';
-                    articleTitleInput.value = '';
-                    articleContentInput.value = '';
-                }
-            };
-
-            // お知らせ記事のフォーム非表示
-            window.hideArticleForm = () => {
-                document.getElementById('article-form-container').classList.add('hidden');
-            };
-
-            // お知らせ記事の保存処理
-            function handleArticleFormSubmit(e) {
-                e.preventDefault();
-                const articleId = document.getElementById('article-id').value;
-                const title = document.getElementById('article-title').value;
-                const content = document.getElementById('article-content').value;
-                const currentDate = new Date();
-                const date = `${currentDate.getFullYear()}.${(currentDate.getMonth() + 1).toString().padStart(2, '0')}.${currentDate.getDate().toString().padStart(2, '0')}`;
-
-                // HTMLコンテンツとして保存
-                const formattedContent = `<p class="mb-4">${content.replace(/\n/g, '</p><p class="mb-4">')}</p>`;
-
-                if (articleId) {
-                    // 編集の場合
-                    const index = newsArticles.findIndex(a => a.id === articleId);
-                    if (index !== -1) {
-                        newsArticles[index].title = title;
-                        newsArticles[index].content = formattedContent;
-                        newsArticles[index].date = date; // 編集時も日付を更新
-                    }
-                } else {
-                    // 新規追加の場合
-                    const newArticle = {
-                        id: `news-${Date.now()}`, // 新しいユニークID
-                        date: date,
-                        title: title,
-                        content: formattedContent
-                    };
-                    newsArticles.unshift(newArticle); // リストの先頭に追加
-                }
-
-                saveNewsArticles();
-                hideArticleForm();
-                navigate('news-management'); // 管理ページを再ロードしてリストを更新
-            }
-
-            // お知らせ記事の編集 (パスワードチェック付き)
-            window.checkPasswordAndEditArticle = async (id) => {
-                const authenticated = await window.showModal(
-                    '管理者認証',
-                    '記事を編集するにはパスワードが必要です。',
-                    'password'
-                );
-                if (authenticated) {
-                    const articleToEdit = newsArticles.find(a => a.id === id);
-                    if (articleToEdit) {
-                        navigate('news-management'); // まず管理ページに移動
-                        setTimeout(() => {
-                            showAddArticleForm(articleToEdit);
-                        }, 100); // 少し遅延させてDOMが準備されるのを待つ
-                    }
-                }
-            };
-
-            // お知らせ記事の削除 (パスワードチェック付き)
-            window.checkPasswordAndDeleteArticle = async (id) => {
-                const authenticated = await window.showModal(
-                    '管理者認証',
-                    '記事を削除するにはパスワードが必要です。',
-                    'password'
-                );
-                if (authenticated) {
-                    const confirmed = await window.showModal(
-                        'お知らせ削除の確認',
-                        'このお知らせを本当に削除しますか？この操作は元に戻せません。',
-                        'confirm'
-                    );
-                    if (confirmed) {
-                        newsArticles = newsArticles.filter(a => a.id !== id);
-                        saveNewsArticles();
-                        navigate('news-management'); // 管理ページを再ロードしてリストを更新
-                    }
-                }
-            };
 
             // 初期ページのロード
             navigate('home');
