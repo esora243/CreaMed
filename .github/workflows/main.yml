@@ -1,23 +1,23 @@
-name: Deploy static site to GitHub Pages
+name: Deploy static site to Xserver
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-permissions:
-  contents: write   # ← これ重要！
+    branches: [ "main" ]   # mainブランチにpushしたらデプロイ
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: リポジトリをチェックアウト
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: GitHub Pages にデプロイ
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload via SFTP to Xserver
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./   # index.html などが直下にある場合
+          server: ${{ secrets.XSERVER_HOST }}
+          username: ${{ secrets.XSERVER_USER }}
+          password: ${{ secrets.XSERVER_PASS }}
+          local_path: ./                          # index.html, style.css, script.js など全部直下
+          remote_path: /home/xs671474/xs671474.xsrv.jp/public_html
+          delete_remote_files: false              # trueにするとリモートと完全同期
