@@ -1,8 +1,9 @@
-name: Deploy static site to Xserver
+name: Deploy to Xserver
 
 on:
   push:
-    branches: [ "main" ]   # mainブランチにpushしたらデプロイ
+    branches:
+      - main   # mainブランチにpushされたら実行
 
 jobs:
   deploy:
@@ -10,14 +11,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Upload via SFTP to Xserver
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy to Xserver via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.XSERVER_HOST }}
           username: ${{ secrets.XSERVER_USER }}
           password: ${{ secrets.XSERVER_PASS }}
-          local_path: ./                          # index.html, style.css, script.js など全部直下
-          remote_path: /home/xs671474/xs671474.xsrv.jp/public_html
-          delete_remote_files: false              # trueにするとリモートと完全同期
+          server-dir: /home/xs671474/xs671474.xsrv.jp/public_html/
+          local-dir: ./  # 必要なら dist/ や build/ に変更
