@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kokoro-bg: #fff9fa;
+  --kokoro-beige: #faf3e8;
+  --kokoro-ink: #4a4a4a;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, var(--kokoro-bg) 0%, var(--kokoro-beige) 100%);
+  color: var(--kokoro-ink);
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.8;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 2px solid #f4b886;
+  outline-offset: 2px;
+}
+
+/* スクロールバーをやさしく */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+}
